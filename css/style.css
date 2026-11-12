@@ -429,29 +429,29 @@ a {
     align-items: center;
     gap: var(--gap-1);
     margin-bottom: 15px;
-    a {
-        width: 3rem;
-        height: fit-content;
-        background-color: var(--cor-sucesso-clara);
-        border-radius: 5rem;
-        img {
-            align-self: center;
+        a {
+            width: 3rem;
+            height: fit-content;
+            background-color: var(--cor-sucesso-clara);
+            border-radius: 5rem;
+            img {
+                align-self: center;
+            }
         }
-    }
-    h4 {
-        font-family: var(--font-lato);
-        font-size: var(--tamanho-nome-remedio);
-        font-weight: var(--lato-bold);
-        color: var(--cor-texto);
-        margin: 0 0 8px;
-    }
-    p {
-        font-family: var(--font-lato);
-        font-size: var(--tamanho-texto);
-        font-weight: var(--lato-regular);
-        color: var(--cor-texto-suave);
-        margin: 0;
-    }
+        h4 {
+            font-family: var(--font-lato);
+            font-size: var(--tamanho-nome-remedio);
+            font-weight: var(--lato-bold);
+            color: var(--cor-texto);
+            margin: 0 0 8px;
+        }
+        p {
+            font-family: var(--font-lato);
+            font-size: var(--tamanho-texto);
+            font-weight: var(--lato-regular);
+            color: var(--cor-texto-suave);
+            margin: 0;
+        }
     }
 
 
@@ -474,6 +474,7 @@ a {
         width: 70%;
         padding: 1rem 0rem;
         margin: 1.5rem;
+        text-align: center;
     }
     .btn-adicionar-footer:hover {
         color: var(--cor-primaria);
