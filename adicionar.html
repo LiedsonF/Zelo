@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZELO - Adicionar remédio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="container header-cadastro">
+        <a href="./index.html" class="btn-voltar" aria-label="Voltar para a página inicial">
+            &lt;
+        </a>
+
+        <!-- Nome do remédio -->
+
+        <h1>Adicionar remédio</h1>
+    </header>
+
+
+<main class="container container-formulario">
+
+    <form id="form-remedio" class="form-remedio">
+
+        <!-- Nome do remédio -->
+        <div class="campo-grupo">
+
+            <label for="nome-remedio">Nome do remédio</label>
+
+            <input
+                type="text"
+                id="nome-remedio"
+                name="nome"
+                placeholder="Ex.: Losartana"
+                required
+            >
+
+        </div>
+
+
+        <!-- Dose -->
+    <div class="campo-grupo">
+                <label for="dose-remedio">Dose</label>
+                <input type="text" id="dose-remedio" name="dose" placeholder="Ex.: 50 mg, 1 comprimido" required>
+            </div>
+
+
+        <!-- Horários -->
+        <div class="campo-grupo">
+
+            <label>Horários</label>
+
+            <div class="lista-horarios" id="lista-horarios">
+
+                <div class="horario">
+                    <span>08:00</span>
+
+                    <button
+                        type="button"
+                        class="btn-remover-horario"
+                        aria-label="Remover horário"
+                    >
+                        &times;
+                    </button>
+                </div>
+
+
+                <div class="horario">
+                    <span>20:00</span>
+
+                    <button
+                        type="button"
+                        class="btn-remover-horario"
+                        aria-label="Remover horário"
+                    >
+                        &times;
+                    </button>
+                </div>
+
+
+                <!-- Adicionar horário -->
+                <button
+                    type="button"
+                    class="btn-add-horario"
+                    id="btn-add-horario"
+                >
+                    + Horário
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Frequência -->
+         <div class="campo-grupo">
+
+            <label for="frequencia-remedio">Frequência</label>
+
+            <select id="frequencia-remedio" name="frequencia" >
+                <option value="todos-os-dias" selected>Todos os dias</option>
+
+                <option value="dias-alterados">Dias alterados</option>
+
+                <option value="semanal">
+                    Uma vez por semana
+                </option>
+
+                <option value="necessario">
+                    Quando necessário
+                </option>
+            </select>
+         </div>
+
+         <!-- Observações -->
+
+         <div class="campo-grupo">
+
+            <label for="obs-remedio">
+                Observações (opcional)
+            </label>
+
+            <textarea id="obs-remedio" name="observacoes" rows="3" placeholder="Ex. : tomar depois do café da manhã">
+            </textarea>
+         </div>
+
+         <!-- Ações do formulário -->
+          <div class="acoes-formulario">
+            <a href="./index.html" class="btn-cancelar">Cancelar</a>
+
+            <button type="submit" class="btn-salvar">Salvar remédio
+            </button>
+          </div>
+
+    </form>
+
+</main>
+
+</body>
