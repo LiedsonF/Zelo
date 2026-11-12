@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -15,14 +16,14 @@
     --cor-superficie: #FFFFFF; /* cards, cabeçalho, inputs */
 
     /* Textos */
-    --cor-texto: #111827;  /* texto principal */
-    --cor-texto-secundario: #344054; /* botões secundários */
-    --cor-texto-suave: #4B5563; /* datas, doses, descrições */
+    --cor-texto: #111827; 
+    --cor-texto-secundario: #344054;
+    --cor-texto-suave: #4B5563;
 
     /* Bordas */
-    --cor-borda: #E5E7EB; /* cards e divisórias */
-    --cor-borda-input: #D0D5DD; /* inputs, select, textarea */
-    --cor-borda-tracejada: #98A2B3; /* botão "+ Horário" */
+    --cor-borda: #E5E7EB;
+    --cor-borda-input: #D0D5DD;
+    --cor-borda-tracejada: #98A2B3;
 
     /* Status: atrasada */
     --cor-perigo: #B42318;
@@ -36,19 +37,18 @@
     --font-lato: "Lato", sans-serif;
     --lato-bold: 700;
     --lato-regular: 400;
-    --tamanho-titulo: 1.625rem; /* 26px — "Meus remédios" */
-    --tamanho-titulo-tela: 1.375rem; /* 22px — "Adicionar remédio" */
-    --tamanho-nome-remedio: 1.125rem; /* 18px — nome nos cards */
-    --tamanho-input: 1.0625rem; /* 17px — inputs e botões grandes */
-    --tamanho-botao: 1rem; /* 16px — "Tomei", etiquetas */
-    --tamanho-texto: 0.9375rem; /* 15px — dose, horário, labels */
-    --tamanho-secao: 0.875rem; /* 14px — "ATRASADA", "PRÓXIMAS" */
-    --tamanho-etiqueta: 0.8125rem; /* 13px — etiqueta "Atrasada 1h" */
+    --tamanho-titulo: 1.625rem;
+    --tamanho-titulo-tela: 1.375rem;
+    --tamanho-nome-remedio: 1.125rem;
+    --tamanho-input: 1.0625rem;
+    --tamanho-botao: 1rem;
+    --tamanho-texto: 0.9375rem;
+    --tamanho-secao: 0.875rem;
+    --tamanho-etiqueta: 0.8125rem;
 
     /* Template bordas */
-    --borda-section: solid 3px var(--cor-borda);
+    --borda-section: solid 1px var(--cor-borda);
 
-    
     /* Templates para sizings e espaçamentos */
     --pd-1: 1rem;
     --pd-2: 2rem;
@@ -58,8 +58,6 @@
     --gap-1: 1rem;
     --gap-2: 2rem;
     --gap-3: 3rem;
-
-
 }
 
 body {
@@ -67,6 +65,7 @@ body {
     font-weight: var(--lato-regular);
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
+    min-height: 100vh;
 }
 
 img {
@@ -79,44 +78,65 @@ a {
     text-decoration: none;
 }
 
+button {
+    font-family: inherit;
+}
+
+/* TELA PRINCIPAL */
+
+main {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 20px 20px;
+}
 
 .container-header {
     background-color: var(--cor-superficie);
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    gap: var(--gap-2);
+    gap: 1.5rem;
     justify-content: center;
+    padding: 1.5rem max(20px, calc((100% - 610px) / 2));
     border-bottom: var(--borda-section);
-    padding: 1.5rem;
+
     .box-1-header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+
         div {
             p {
                 font-size: var(--tamanho-texto);
-                color: var(--cor-texto-suave)
+                color: var(--cor-texto-suave);
+                margin-bottom: 5px;
             }
+
             h2 {
                 font-size: var(--tamanho-titulo);
             }
         }
+
         a {
-            background-color: var(--cor-borda-input);
-            border-radius: 1.25rem;
-            width: 4rem;
-            height: fit-content;
-            padding: 0.5rem;
+            background-color: var(--cor-primaria-clara);
+            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            padding: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+
             img {
-                justify-self: center;
+                width: 100%;
             }
-            
         }
+
         a:hover {
             background-color: var(--cor-primaria);
-            transition: all 0.3s ease;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
     }
 
@@ -125,10 +145,28 @@ a {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            margin-bottom: 10px;
+
             p {
                 font-size: var(--tamanho-texto);
                 color: var(--cor-texto-secundario);
                 font-weight: var(--lato-bold);
+            }
+        }
+        
+        .info-progresso {
+            width: 100%;
+            height: 8px;
+            background-color: var(--cor-borda);
+            border-radius: 20px;
+            overflow: hidden;
+
+            span {
+                display: block;
+                width: 40%;
+                height: 100%;
+                background-color: var(--cor-primaria);
+                border-radius: 20px;
             }
         }
     }
@@ -144,6 +182,7 @@ a {
     font-weight: var(--lato-bold);
     color: var(--cor-perigo);
     margin-bottom: var(--pd-1);
+    letter-spacing: 0.5px;
 }
 
 .box-atrasada {
@@ -156,6 +195,11 @@ a {
     justify-content: space-between;
     align-items: center;
     gap: var(--gap-1);
+}
+
+.info-medicamento {
+    flex: 1;
+    min-width: 0;
 }
 
 .info-medicamento h4 {
@@ -172,7 +216,8 @@ a {
     font-weight: var(--lato-regular);
     color: var(--cor-texto-suave);
     margin: 0;
-} 
+    line-height: 1.4;
+}
 
 .status-medicamento span {
     background-color: var(--cor-perigo-clara);
@@ -182,6 +227,7 @@ a {
     font-family: var(--font-lato);
     font-size: var(--tamanho-etiqueta);
     font-weight: var(--lato-bold);
+    white-space: nowrap;
 }
 
 .btn-tomei {
@@ -189,7 +235,7 @@ a {
     color: var(--cor-primaria);
     border: 2px solid var(--cor-primaria);
     border-radius: 13px;
-    padding: 13px 16px;
+    padding: 12px 16px;
 
     font-family: var(--font-lato);
     font-size: var(--tamanho-botao);
@@ -197,16 +243,16 @@ a {
 
     cursor: pointer;
     transition: 0.3s;
+    white-space: nowrap;
 }
 
-.btn-tomei:hover{
+.btn-tomei:hover {
     background-color: var(--cor-primaria);
     color: var(--cor-primaria-clara);
 }
 
-.container-proximas{
-    margin-top: var(--gap-1);
-    gap: var(--gap-1);
+.container-proximas {
+    margin-top: var(--gap-2);
 }
 
 .titulo-proximas {
@@ -215,6 +261,7 @@ a {
     font-weight: var(--lato-bold);
     color: var(--cor-texto-secundario);
     margin-bottom: var(--pd-1);
+    letter-spacing: 0.5px;
 }
 
 .box-proximas {
@@ -227,11 +274,112 @@ a {
     justify-content: space-between;
     align-items: center;
     gap: var(--gap-1);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
+.container-tomadas {
+    margin-top: var(--gap-2);
 
-/*TELA DE ADICIONAR REMÉDIO*/
+    h3 {
+        font-family: var(--font-lato);
+        font-size: var(--tamanho-secao);
+        font-weight: var(--lato-bold);
+        color: var(--cor-sucesso);
+        margin-bottom: var(--pd-1);
+        letter-spacing: 0.5px;
+    }
+
+    .box-tomadas {
+        background-color: var(--cor-superficie);
+        border: 2px solid var(--cor-borda);
+        border-radius: 14px;
+        padding: var(--pd-1);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: var(--gap-1);
+        margin-bottom: 12px;
+
+        a {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            background-color: var(--cor-sucesso-clara);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        h4 {
+            font-family: var(--font-lato);
+            font-size: var(--tamanho-nome-remedio);
+            font-weight: var(--lato-bold);
+            color: var(--cor-texto);
+            margin: 0 0 8px;
+        }
+
+        p {
+            font-family: var(--font-lato);
+            font-size: var(--tamanho-texto);
+            font-weight: var(--lato-regular);
+            color: var(--cor-texto-suave);
+            margin: 0;
+        }
+
+    }
+}
+
+.box-tomadas h4{
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Classe que será ativada pelo JavaScript 
+.medicamento-tomado {
+    text-decoration: line-through;
+    color: var(--cor-texto-secundario);
+}
+*/
+.container-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-superficie);
+    border-top: var(--borda-section);
+    padding: 0 max(20px, calc((100% - 610px) / 2));
+
+    .btn-adicionar-footer {
+        color: var(--cor-primaria-clara);
+        border: 2px solid var(--cor-primaria);
+        border-radius: 13px;
+        font-family: var(--font-lato);
+        font-size: var(--tamanho-botao);
+        font-weight: var(--lato-bold);
+        background-color: var(--cor-primaria);
+        width: 100%;
+        padding: 1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transition: 0.3s ease;
+    }
+
+   .btn-adicionar-footer:hover {
+    color: var(--cor-primaria);
+    background-color: var(--cor-primaria-clara);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: translateY(-4px);
+    }
+}
+
+/* TELA DE ADICIONAR REMÉDIO */
+
 .header-cadastro {
     display: flex;
     align-items: center;
@@ -314,6 +462,12 @@ a {
 .campo-grupo select:focus,
 .campo-grupo textarea:focus {
     border-color: var(--cor-primaria);
+}
+
+.campo-grupo textarea {
+    resize: none;
+    min-height: 90px;
+    height: 90px;
 }
 
 .lista-horarios {
@@ -410,78 +564,47 @@ a {
     background-color: var(--cor-primaria-escura);
 }
 
-.container-tomadas {
+/* RESPONSIVIDADE */
 
-    h3 {
-    font-family: var(--font-lato);
-    font-size: var(--tamanho-secao);
-    font-weight: var(--lato-bold);
-    color: var(--cor-sucesso);
-    margin-bottom: var(--pd-1);
-    }
-    .box-tomadas {
-    background-color: var(--cor-superficie);
-    border: 2px solid var(--cor-borda);
-    border-radius: 14px;
-    padding: var(--pd-1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--gap-1);
-    margin-bottom: 15px;
-        a {
-            width: 3rem;
-            height: fit-content;
-            background-color: var(--cor-sucesso-clara);
-            border-radius: 5rem;
-            img {
-                align-self: center;
-            }
-        }
-        h4 {
-            font-family: var(--font-lato);
-            font-size: var(--tamanho-nome-remedio);
-            font-weight: var(--lato-bold);
-            color: var(--cor-texto);
-            margin: 0 0 8px;
-        }
-        p {
-            font-family: var(--font-lato);
-            font-size: var(--tamanho-texto);
-            font-weight: var(--lato-regular);
-            color: var(--cor-texto-suave);
-            margin: 0;
-        }
+@media (max-width: 480px) {
+
+    .container-header {
+        padding: 1.25rem 20px;
     }
 
-
-}
-
-.container-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--cor-superficie);
-    border-top: var(--borda-section);
-    .btn-adicionar-footer {
-        color: var(--cor-primaria-clara);
-        border: 2px solid var(--cor-primaria);
-        border-radius: 13px;
-        font-family: var(--font-lato);
-        font-size: var(--tamanho-botao);
-        font-weight: var(--lato-bold);
-        background-color: var(--cor-primaria);
-        width: 70%;
-        padding: 1rem 0rem;
-        margin: 1.5rem;
-        text-align: center;
+    .box-atrasada,
+    .box-proximas {
+        gap: 10px;
+        padding: 12px;
     }
-    .btn-adicionar-footer:hover {
-        color: var(--cor-primaria);
-        background-color: var(--cor-primaria-clara);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        transform: scale(1.1);
+
+    .info-medicamento h4 {
+        font-size: 1rem;
+    }
+
+    .info-medicamento p {
+        font-size: 0.8125rem;
+    }
+
+    .btn-tomei {
+        padding: 10px 12px;
+        font-size: 0.875rem;
+    }
+
+    .status-medicamento span {
+        font-size: 0.75rem;
+        padding: 5px 8px;
+    }
+
+    .header-cadastro {
+        padding: 16px 20px;
+    }
+
+    .container-formulario {
+        padding: 20px;
+    }
+
+    .acoes-formulario {
+        grid-template-columns: 1fr 1.5fr;
     }
 }
-
