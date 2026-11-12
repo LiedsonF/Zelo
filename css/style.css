@@ -81,6 +81,7 @@ a {
 
 
 .container-header {
+    background-color: var(--cor-superficie);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -113,7 +114,7 @@ a {
             
         }
         a:hover {
-            background-color: var(--cor-primaria-escura);
+            background-color: var(--cor-primaria);
             transition: all 0.3s ease;
             transform: scale(1.1);
         }
@@ -228,4 +229,81 @@ a {
     gap: var(--gap-1);
     margin-bottom: 15px;
 }
+
+.container-tomadas {
+
+    h3 {
+    font-family: var(--font-lato);
+    font-size: var(--tamanho-secao);
+    font-weight: var(--lato-bold);
+    color: var(--cor-sucesso);
+    margin-bottom: var(--pd-1);
+    }
+    .box-tomadas {
+    background-color: var(--cor-superficie);
+    border: 2px solid var(--cor-borda);
+    border-radius: 14px;
+    padding: var(--pd-1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-1);
+    margin-bottom: 15px;
+    a {
+        width: 3rem;
+        height: fit-content;
+        background-color: var(--cor-sucesso-clara);
+        border-radius: 5rem;
+        img {
+            align-self: center;
+        }
+    }
+    h4 {
+        font-family: var(--font-lato);
+        font-size: var(--tamanho-nome-remedio);
+        font-weight: var(--lato-bold);
+        color: var(--cor-texto);
+        margin: 0 0 8px;
+    }
+    p {
+        font-family: var(--font-lato);
+        font-size: var(--tamanho-texto);
+        font-weight: var(--lato-regular);
+        color: var(--cor-texto-suave);
+        margin: 0;
+    }
+    }
+
+
+}
+
+.container-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-superficie);
+    border-top: var(--borda-section);
+    button {
+        color: var(--cor-primaria-clara);
+        border: 2px solid var(--cor-primaria);
+        border-radius: 13px;
+        font-family: var(--font-lato);
+        font-size: var(--tamanho-botao);
+        font-weight: var(--lato-bold);
+        background-color: var(--cor-primaria);
+        width: 70%;
+        padding: 1rem 0rem;
+        margin: 1.5rem;
+    }
+    button:hover {
+        color: var(--cor-primaria);
+        background-color: var(--cor-primaria-clara);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        transform: scale(1.1);
+    }
+}
+
+
+
 
