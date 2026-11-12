@@ -100,3 +100,94 @@ a {
     }
 }
 
+.container-atrasadas {
+    margin-top: var(--gap-1);
+}
+
+.titulo-atrasadas {
+    font-family: var(--font-lato);
+    font-size: var(--tamanho-secao);
+    font-weight: var(--lato-bold);
+    color: var(--cor-perigo);
+    margin-bottom: var(--pd-1);
+}
+
+.box-atrasada {
+    background-color: var(--cor-superficie);
+    border: 2px solid var(--cor-perigo);
+    border-radius: 14px;
+    padding: var(--pd-1);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-1);
+}
+
+.info-medicamento h4 {
+    font-family: var(--font-lato);
+    font-size: var(--tamanho-nome-remedio);
+    font-weight: var(--lato-bold);
+    color: var(--cor-texto);
+    margin: 0 0 8px;
+}
+
+.info-medicamento p {
+    font-family: var(--font-lato);
+    font-size: var(--tamanho-texto);
+    font-weight: var(--lato-regular);
+    color: var(--cor-texto-suave);
+    margin: 0;
+} 
+
+.status-medicamento span {
+    background-color: var(--cor-perigo-clara);
+    color: var(--cor-perigo);
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-family: var(--font-lato);
+    font-size: var(--tamanho-etiqueta);
+    font-weight: var(--lato-bold);
+}
+
+.btn-tomei {
+    background-color: var(--cor-primaria-clara);
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+    border-radius: 13px;
+    padding: 13px 16px;
+
+    font-family: var(--font-lato);
+    font-size: var(--tamanho-botao);
+    font-weight: var(--lato-bold);
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-tomei:hover{
+    background-color: var(--cor-primaria);
+    color: var(--cor-primaria-clara);
+}
+
+.container-proximas{
+    margin-top: var(--gap-1);
+}
+
+.titulo-proximas {
+    font-family: var(--font-lato);
+    font-size: var(--tamanho-secao);
+    font-weight: var(--lato-bold);
+    color: var(--cor-texto-secundario);
+    margin-bottom: var(--pd-1);
+}
+
+.box-proximas {
+    background-color: var(--cor-superficie);
+    border: 2px solid var(--cor-borda);
+    border-radius: 14px;
+    padding: var(--pd-1);
+
+    display: flex;
+    justify-content: space-between;
+}
