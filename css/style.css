@@ -172,6 +172,7 @@ a {
 
 .container-proximas{
     margin-top: var(--gap-1);
+    gap: var(--gap-1);
 }
 
 .titulo-proximas {
@@ -190,4 +191,7 @@ a {
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-1);
+    margin-bottom: 15px;
 }
