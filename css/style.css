@@ -45,6 +45,10 @@
     --tamanho-secao: 0.875rem; /* 14px — "ATRASADA", "PRÓXIMAS" */
     --tamanho-etiqueta: 0.8125rem; /* 13px — etiqueta "Atrasada 1h" */
 
+    /* Template bordas */
+    --borda-section: solid 3px var(--cor-borda);
+
+    
     /* Templates para sizings e espaçamentos */
     --pd-1: 1rem;
     --pd-2: 2rem;
@@ -61,8 +65,8 @@
 body {
     font-family: var(--font-lato);
     font-weight: var(--lato-regular);
-    padding: var(--pd-body);
     background-color: var(--cor-fundo);
+    color: var(--cor-texto);
 }
 
 img {
@@ -81,13 +85,37 @@ a {
     flex-direction: column;
     flex-wrap: wrap;
     gap: var(--gap-2);
-
+    justify-content: center;
+    border-bottom: var(--borda-section);
+    padding: 1.5rem;
     .box-1-header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        div {
+            p {
+                font-size: var(--tamanho-texto);
+                color: var(--cor-texto-suave)
+            }
+            h2 {
+                font-size: var(--tamanho-titulo);
+            }
+        }
         a {
-            background-color: var(--cor-primaria-clara);
+            background-color: var(--cor-borda-input);
+            border-radius: 1.25rem;
+            width: 4rem;
+            height: fit-content;
+            padding: 0.5rem;
+            img {
+                justify-self: center;
+            }
+            
+        }
+        a:hover {
+            background-color: var(--cor-primaria-escura);
+            transition: all 0.3s ease;
+            transform: scale(1.1);
         }
     }
 
@@ -96,7 +124,13 @@ a {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            p {
+                font-size: var(--tamanho-texto);
+                color: var(--cor-texto-secundario);
+                font-weight: var(--lato-bold);
+            }
         }
     }
 }
+
 
