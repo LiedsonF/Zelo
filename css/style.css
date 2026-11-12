@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+:root {
+    /* Cor principal (botões, destaques, barra de progresso) */
+    --cor-primaria: #1D4ED8;
+    --cor-primaria-escura: #1E3A8A; /* hover */
+    --cor-primaria-clara: #EFF4FF; /* fundo das etiquetas de horário e do ícone */
+
+    /* Fundos */
+    --cor-fundo: #F4F6F8; /* fundo da página */
+    --cor-superficie: #FFFFFF; /* cards, cabeçalho, inputs */
+
+    /* Textos */
+    --cor-texto: #111827;  /* texto principal */
+    --cor-texto-secundario: #344054; /* botões secundários */
+    --cor-texto-suave: #4B5563; /* datas, doses, descrições */
+
+    /* Bordas */
+    --cor-borda: #E5E7EB; /* cards e divisórias */
+    --cor-borda-input: #D0D5DD; /* inputs, select, textarea */
+    --cor-borda-tracejada: #98A2B3; /* botão "+ Horário" */
+
+    /* Status: atrasada */
+    --cor-perigo: #B42318;
+    --cor-perigo-clara: #FEF3F2;
+
+    /* Status: tomada */
+    --cor-sucesso: #067647;
+    --cor-sucesso-clara: #ECFDF3;
+
+    /* Templates para font */
+    --font-lato: "Lato", sans-serif;
+    --lato-bold: 700;
+    --lato-regular: 400;
+    --tamanho-titulo: 1.625rem; /* 26px — "Meus remédios" */
+    --tamanho-titulo-tela: 1.375rem; /* 22px — "Adicionar remédio" */
+    --tamanho-nome-remedio: 1.125rem; /* 18px — nome nos cards */
+    --tamanho-input: 1.0625rem; /* 17px — inputs e botões grandes */
+    --tamanho-botao: 1rem; /* 16px — "Tomei", etiquetas */
+    --tamanho-texto: 0.9375rem; /* 15px — dose, horário, labels */
+    --tamanho-secao: 0.875rem; /* 14px — "ATRASADA", "PRÓXIMAS" */
+    --tamanho-etiqueta: 0.8125rem; /* 13px — etiqueta "Atrasada 1h" */
+
+    /* Templates para sizings e espaçamentos */
+    --pd-1: 1rem;
+    --pd-2: 2rem;
+    --pd-3: 3rem;
+    --pd-body: 2rem 1.25rem;
+
+    --gap-1: 1rem;
+    --gap-2: 2rem;
+    --gap-3: 3rem;
+
+
+}
+
+body {
+    font-family: var(--font-lato);
+    font-weight: var(--lato-regular);
+    padding: var(--pd-body);
+    background-color: var(--cor-fundo);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.container-header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--gap-2);
+
+    .box-1-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        a {
+            background-color: var(--cor-primaria-clara);
+        }
+    }
+
+    .box-2-header {
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+
