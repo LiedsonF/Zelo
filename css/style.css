@@ -463,7 +463,7 @@ a {
     align-items: center;
     background-color: var(--cor-superficie);
     border-top: var(--borda-section);
-    button {
+    .btn-adicionar-footer {
         color: var(--cor-primaria-clara);
         border: 2px solid var(--cor-primaria);
         border-radius: 13px;
@@ -475,7 +475,7 @@ a {
         padding: 1rem 0rem;
         margin: 1.5rem;
     }
-    button:hover {
+    .btn-adicionar-footer:hover {
         color: var(--cor-primaria);
         background-color: var(--cor-primaria-clara);
         cursor: pointer;
