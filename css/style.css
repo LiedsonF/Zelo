@@ -432,6 +432,42 @@ main {
     gap: 8px;
 }
 
+.campo-dias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.5rem;
+    text-align:center;
+    text-wrap: nowrap;
+    align-items: center;
+    label {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        cursor: pointer;
+        border: 1.5px solid var(--cor-borda-input);
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+        outline: none;
+        background-color: var(--cor-superficie);
+        input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    }
+    label:has(input:checked) {
+        background-color: var(--cor-primaria);
+        color: var(--cor-primaria-clara);
+    }
+    label:has(input:focus-visible), label:hover {
+        outline: 2px solid var(--cor-primaria);
+        outline-offset: 2px;
+    }
+}
+
 .campo-grupo label {
     font-size: var(--tamanho-texto);
     font-weight: var(--lato-bold);
