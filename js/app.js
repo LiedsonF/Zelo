@@ -56,7 +56,7 @@ if (secaoProximas) {
 
         remedio.horarios.forEach(horario => {
             const card = document.createElement("div");
-            card.className = "box-proximas";
+            card.className = "box box-proximas";
             card.innerHTML = `
                 <div class="info-medicamento">
                     <h4></h4>
