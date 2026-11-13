@@ -134,10 +134,37 @@ main {
             }
         }
 
+        button {
+            background-color: var(--cor-perigo-clara);
+            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            padding: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+            border: none;
+        }
+
         a:hover {
             background-color: var(--cor-primaria);
             transform: scale(1.05);
         }
+
+        button:hover {
+            background-color: var(--cor-perigo);
+            transform: scale(1.05);
+        }
+
+        .mini-box-botoes {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
     }
 
     .box-2-header {
@@ -487,6 +514,8 @@ main {
         outline-offset: 2px;
     }
 }
+
+
 
 .campo-grupo label {
     font-size: var(--tamanho-texto);

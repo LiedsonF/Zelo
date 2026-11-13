@@ -156,9 +156,14 @@ function iniciarApp() {
             console.warn("Elemento #btn-add-horario ou #lista-horarios não encontrado.");
         }
 
-        // FREQUÊNCIA
-        const checkboxTodos = document.querySelector('input[name="dias"][value="todos"]');
-        const checkboxesDias = document.querySelectorAll('input[name="dias"]:not([value="todos"])');
+      // FREQUÊNCIA
+        const checkboxTodos = document.querySelector(
+            'input[name="dias"][value="todos"]'
+        );
+
+        const checkboxesDias = document.querySelectorAll(
+            'input[name="dias"]:not([value="todos"])'
+        );
 
         if (checkboxTodos) {
             checkboxTodos.addEventListener("change", () => {
@@ -234,46 +239,63 @@ function iniciarApp() {
     }
 
     // ------------------JS Arthur----------------------- //
-    const btnTomei = document.querySelectorAll(".btn-tomei");
+      const btnTomei = document.querySelectorAll(".btn-tomei");
     const containerTomadas = document.getElementById("container-tomadas");
 
     if (containerTomadas) {
-        btnTomei.forEach((botao) => {
+        btnTomei.forEach(botao => {
+
             const boxInicial = botao.closest(".box");
             if (!boxInicial) return;
 
-            const originalContainer = botao.closest(".container, .container-proximas");
+            const originalContainer = botao.closest(
+                ".container, .container-proximas"
+            );
+
             const classText = boxInicial.className;
             const statusMed = boxInicial.querySelector(".status-medicamento");
 
             botao.addEventListener("click", () => {
+
                 const boxBotao = botao.closest(".box");
                 if (!boxBotao) return;
 
-                if (botao.className === "btn-tomei") {
+                if (botao.classList.contains("btn-tomei")) {
+
                     containerTomadas.appendChild(boxBotao);
                     boxBotao.className = "box box-tomadas";
 
                     const tagA = document.createElement("a");
                     const tagImg = document.createElement("img");
+
                     tagImg.src = "images/check.svg";
                     tagImg.alt = "Check";
+
                     tagA.appendChild(tagImg);
                     boxBotao.prepend(tagA);
 
-                    const statusAtual = boxBotao.querySelector(".status-medicamento");
+                    const statusAtual = boxBotao.querySelector(
+                        ".status-medicamento"
+                    );
+
                     if (statusAtual) statusAtual.remove();
 
                     botao.className = "btn-desfazer";
                     botao.textContent = "Desfazer";
 
+                    // EXCLUIR INDIVIDUALMENTE
                     const botaoExcluir = document.createElement("button");
+
                     botaoExcluir.className = "btn-excluir";
-                    botaoExcluir.textContent = "Excluir";
                     botaoExcluir.type = "button";
+                    botaoExcluir.textContent = "Excluir";
 
                     botaoExcluir.addEventListener("click", () => {
-                        const confirmar = confirm("Deseja excluir este medicamento da lista de tomadas?");
+
+                        const confirmar = confirm(
+                            "Deseja excluir este medicamento da lista de tomadas?"
+                        );
+
                         if (confirmar) {
                             boxBotao.remove();
                             atualizarProgresso();
@@ -281,10 +303,13 @@ function iniciarApp() {
                     });
 
                     boxBotao.appendChild(botaoExcluir);
-                } else if (botao.className === "btn-desfazer") {
+
+                } else if (botao.classList.contains("btn-desfazer")) {
+
                     if (originalContainer) {
                         originalContainer.appendChild(boxBotao);
                     }
+
                     boxBotao.className = classText;
 
                     const tagA = boxBotao.querySelector("a");
@@ -293,7 +318,7 @@ function iniciarApp() {
                     const btnExcluir = boxBotao.querySelector(".btn-excluir");
                     if (btnExcluir) btnExcluir.remove();
 
-                    if (statusMed !== null) {
+                    if (statusMed) {
                         botao.before(statusMed);
                     }
 
@@ -306,8 +331,34 @@ function iniciarApp() {
         });
     }
 
+
+    // ========================================
+    // EXCLUIR TODO O HISTÓRICO
+    // ========================================
+
+    const btnExcluirHistorico = document.querySelector(".box-1-header .btn-excluir");
+
+    if (btnExcluirHistorico) {
+        btnExcluirHistorico.addEventListener("click", () => {
+
+            const confirmar = confirm(
+                "Isso excluirá todos os remédios cadastrados. Deseja continuar?"
+            );
+
+            if (confirmar) {
+                localStorage.removeItem("remedios");
+                location.reload();
+            }
+        });
+    }
+
     atualizarProgresso();
 }
+
+
+// ========================================
+// INICIAR APLICAÇÃO
+// ========================================
 
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", iniciarApp);
