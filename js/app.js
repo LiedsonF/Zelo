@@ -143,9 +143,8 @@ if (formulario) {
             checkboxesDias.forEach(checkbox => {
                 checkbox.checked = false;
             });
-        }
-    });
-
+        };
+    });    
     checkboxesDias.forEach(checkbox => {
         checkbox.addEventListener("change", () => {
             if (checkbox.checked) {
@@ -218,6 +217,16 @@ btnTomei.forEach((botao) => {
             botao.textContent = 'Tomei';
         }    
     })
+});
+
+const btnExcluir = document.querySelector('.btn-excluir');
+
+btnExcluir.addEventListener('click', () => {
+    let confirmar = confirm('Isso excluirá todos os remédios cadastrados. Deseja continuar?');
+    if (confirmar) {
+        localStorage.clear();
+        location.reload();
+    }
 });
 
 //-------------------------------------------------------//
