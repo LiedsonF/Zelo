@@ -24,53 +24,68 @@ function atualizarProgresso() {
     const totalDoses = dosesTomadas + dosesAtrasadas + dosesProximas;
 
     const percentual = totalDoses === 0
-    ? 0
-    : Math.round((dosesTomadas / totalDoses) * 100);
+        ? 0
+        : Math.round((dosesTomadas / totalDoses) * 100);
 
     const texto = document.getElementById("texto-progresso");
     const porcentagem = document.getElementById("porcentagem-progresso");
     const barra = document.getElementById("barra-preenchimento");
 
- if (texto) {
-        texto.textContent = `${dosesTomadas} de ${totalDoses} doses tomadas`;
+    if (texto) {
+        texto.textContent = totalDoses === 0
+            ? "Nenhuma dose para hoje"
+            : `${dosesTomadas} de ${totalDoses} doses tomadas`;
     }
-if (porcentagem) {
+    if (porcentagem) {
         porcentagem.textContent = `${percentual}%`;
     }
-if (barra) {
+    if (barra) {
         barra.style.width = `${percentual}%`;
     }
 }
 
-//NOVO: MOSTRAR REMÉDIOS CADASTRADOS
+//MOSTRAR REMÉDIOS CADASTRADOS
 const secaoProximas = document.querySelector(".container-proximas");
 
 if (secaoProximas) {
     const diasSemana = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
-    const remediosSalvos = JSON.parse(localStorage.getItem("remedios")) || [];
+    const hoje = diasSemana[new Date().getDay()];
+    let remediosSalvos = [];
+
+    try {
+        remediosSalvos = JSON.parse(localStorage.getItem("remedios")) || [];
+    } catch (erro) {
+        remediosSalvos = [];
+    }
+
+    // Monta uma lista de doses de hoje e ordena por horário
+    const dosesDeHoje = [];
 
     remediosSalvos.forEach(remedio => {
-        const tomaHoje = remedio.dias.includes("todos") ||
-                         remedio.dias.includes(diasSemana[new Date().getDay()]);
+        const tomaHoje = remedio.dias.includes("todos") || remedio.dias.includes(hoje);
         if (!tomaHoje) return;
 
         remedio.horarios.forEach(horario => {
-            const card = document.createElement("div");
-            card.className = "box-proximas";
-            card.innerHTML = `
-                <div class="info-medicamento">
-                    <h4></h4>
-                    <p></p>
-                </div>
-                <button class="btn-tomei">Tomei</button>`;
-            card.querySelector("h4").textContent = remedio.nome;
-            card.querySelector("p").textContent = `${remedio.dose} . ${horario}`;
-            secaoProximas.append(card);
+            dosesDeHoje.push({ nome: remedio.nome, dose: remedio.dose, horario });
         });
     });
-}
 
-atualizarProgresso();
+    dosesDeHoje.sort((a, b) => a.horario.localeCompare(b.horario));
+
+    dosesDeHoje.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "box box-proximas"; // "box" é necessário para o botão Tomei funcionar
+        card.innerHTML = `
+            <div class="info-medicamento">
+                <h4></h4>
+                <p></p>
+            </div>
+            <button class="btn-tomei">Tomei</button>`;
+        card.querySelector("h4").textContent = item.nome;
+        card.querySelector("p").textContent = `${item.dose} . ${item.horario}`;
+        secaoProximas.append(card);
+    });
+}
 
 //CADASTRO DE MEDICAMENTOS
 const formulario = document.getElementById("form-remedio");
@@ -78,13 +93,13 @@ const formulario = document.getElementById("form-remedio");
 if (formulario) {
     const listaHorarios = document.getElementById("lista-horarios");
     const botaoAdicionarHorario = document.getElementById("btn-add-horario");
-    
- //CRIAR CAMPO DE HORÁRIO
+
+    //CRIAR CAMPO DE HORÁRIO
     function criarCampoHorario(valor = "") {
         const novoHorario = document.createElement("div");
         novoHorario.classList.add("horario");
 
-    const input = document.createElement("input");
+        const input = document.createElement("input");
         input.type = "text";
         input.placeholder = "HH:MM";
         input.value = valor;
@@ -97,12 +112,15 @@ if (formulario) {
         input.addEventListener("input", () => {
             let valorDigitado = input.value.replace(/\D/g, "");
 
-    if (valorDigitado.length > 4) {
-             valorDigitado = valorDigitado.slice(0, 4);}
+            if (valorDigitado.length > 4) {
+                valorDigitado = valorDigitado.slice(0, 4);
+            }
 
-    if (valorDigitado.length > 2) {
-            valorDigitado = valorDigitado.slice(0, 2) + ":" + valorDigitado.slice(2); }
-        input.value = valorDigitado;
+            if (valorDigitado.length > 2) {
+                valorDigitado = valorDigitado.slice(0, 2) + ":" + valorDigitado.slice(2);
+            }
+
+            input.value = valorDigitado;
         });
 
         const botaoRemover = document.createElement("button");
@@ -117,26 +135,29 @@ if (formulario) {
 
         novoHorario.append(input, botaoRemover);
 
-        return novoHorario;}
+        return novoHorario;
+    }
 
-//HORÁRIOS INICIAIS
+    //HORÁRIOS INICIAIS
     document.querySelectorAll(".horario").forEach(horario => {
         const texto = horario.querySelector("span");
         const valorInicial = texto ? texto.textContent.trim() : "";
         const novoCampo = criarCampoHorario(valorInicial);
 
-        horario.replaceWith(novoCampo);});
-//ADICIONAR HORÁRIO
+        horario.replaceWith(novoCampo);
+    });
+
+    //ADICIONAR HORÁRIO
     botaoAdicionarHorario.addEventListener("click", () => {
         const novoHorario = criarCampoHorario();
 
         listaHorarios.insertBefore(novoHorario, botaoAdicionarHorario);
-        novoHorario.querySelector("input").focus();});
-//FREQUÊNCIA
-    const checkboxTodos = document.querySelector(
-        'input[name="dias"][value="todos"]');
-    const checkboxesDias = document.querySelectorAll(
-        'input[name="dias"]:not([value="todos"])');
+        novoHorario.querySelector("input").focus();
+    });
+
+    //FREQUÊNCIA
+    const checkboxTodos = document.querySelector('input[name="dias"][value="todos"]');
+    const checkboxesDias = document.querySelectorAll('input[name="dias"]:not([value="todos"])');
 
     checkboxTodos.addEventListener("change", () => {
         if (checkboxTodos.checked) {
@@ -154,7 +175,9 @@ if (formulario) {
         });
     });
 
-//NOVO: SALVAR REMÉDIO
+    //SALVAR REMÉDIO
+    const horarioValido = h => /^([01]\d|2[0-3]):[0-5]\d$/.test(h);
+
     formulario.addEventListener("submit", (evento) => {
         evento.preventDefault();
 
@@ -166,7 +189,23 @@ if (formulario) {
             observacoes: document.getElementById("obs-remedio").value.trim()
         };
 
-        const remedios = JSON.parse(localStorage.getItem("remedios")) || [];
+        if (remedio.dias.length === 0) {
+            alert("Selecione pelo menos um dia.");
+            return;
+        }
+
+        if (remedio.horarios.length === 0 || !remedio.horarios.every(horarioValido)) {
+            alert("Informe horários válidos, no formato HH:MM.");
+            return;
+        }
+
+        let remedios = [];
+        try {
+            remedios = JSON.parse(localStorage.getItem("remedios")) || [];
+        } catch (erro) {
+            remedios = [];
+        }
+
         remedios.push(remedio);
         localStorage.setItem("remedios", JSON.stringify(remedios));
 
@@ -174,50 +213,80 @@ if (formulario) {
     });
 }
 
-
 //------------------JS Arthur-----------------------//
 
-const btnTomei = document.querySelectorAll
-('.btn-tomei');
-console.log(btnTomei)
+const btnTomei = document.querySelectorAll('.btn-tomei');
+const containerTomadas = document.getElementById('container-tomadas');
 
+if (containerTomadas) {
+    btnTomei.forEach((botao) => {
+        const originalContainer = botao.closest('.container');
+        const classText = botao.closest('.box').className;
+        const statusMed = botao.closest('.box').querySelector('.status-medicamento');
 
-const containerTomadas = document.getElementById
-('container-tomadas');
+        botao.addEventListener('click', () => {
+            const boxBotao = botao.closest('.box');
 
+            if (botao.className === 'btn-tomei') {
+                containerTomadas.appendChild(boxBotao);
+                boxBotao.className = 'box box-tomadas';
 
+                const tagA = document.createElement('a');
+                const tagImg = document.createElement('img');
 
-btnTomei.forEach((botao) => {
-    const originalContainer = botao.closest('.container');
-    const classText = botao.closest('.box').className;
-    const statusMed = botao.closest('.box').querySelector('.status-medicamento');
-    botao.addEventListener(('click'), () => {
-        const boxBotao = botao.closest('.box');
-        if (botao.className === 'btn-tomei') {
-            containerTomadas.appendChild(boxBotao);
-            boxBotao.className = 'box box-tomadas';
-            const tagA = document.createElement('a');
-            const tagImg = document.createElement('img');
-            tagImg.src = 'images/check.svg';
-            tagImg.alt = 'Check';
-            tagA.appendChild(tagImg);
-            boxBotao.prepend(tagA);
-            if (boxBotao.querySelector('.status-medicamento')) {
-                boxBotao.querySelector('.status-medicamento').remove();
+                tagImg.src = 'images/check.svg';
+                tagImg.alt = 'Check';
+
+                tagA.appendChild(tagImg);
+                boxBotao.prepend(tagA);
+
+                if (boxBotao.querySelector('.status-medicamento')) {
+                    boxBotao.querySelector('.status-medicamento').remove();
+                }
+
+                botao.className = 'btn-desfazer';
+                botao.textContent = 'Desfazer';
+
+                // BOTÃO EXCLUIR
+                const botaoExcluir = document.createElement('button');
+
+                botaoExcluir.className = 'btn-excluir';
+                botaoExcluir.textContent = 'Excluir';
+                botaoExcluir.type = 'button';
+
+                botaoExcluir.addEventListener('click', () => {
+                    const confirmar = confirm('Deseja excluir este medicamento da lista de tomadas?');
+
+                    if (confirmar) {
+                        boxBotao.remove();
+                        atualizarProgresso();
+                    }
+                });
+
+                boxBotao.appendChild(botaoExcluir);
+
+            } else if (botao.className === 'btn-desfazer') {
+                originalContainer.appendChild(boxBotao);
+                boxBotao.className = classText;
+                boxBotao.querySelector('a').remove();
+
+                // Remove o botão excluir ao desfazer
+                boxBotao.querySelector('.btn-excluir').remove();
+
+                if (statusMed !== null) {
+                    botao.before(statusMed);
+                }
+
+                botao.className = 'btn-tomei';
+                botao.textContent = 'Tomei';
             }
-            botao.className = 'btn-desfazer';
-            botao.textContent = 'Desfazer';
-        } else if (botao.className === 'btn-desfazer') {
-            originalContainer.appendChild(boxBotao);
-            boxBotao.className = classText;
-            boxBotao.querySelector('a').remove();
-            if (statusMed !== null) {
-                botao.before(statusMed);
-            }
-            botao.className = 'btn-tomei';
-            botao.textContent = 'Tomei';
-        }    
-    })
-});
+
+            atualizarProgresso();
+        });
+    });
+}
 
 //-------------------------------------------------------//
+
+// Calcula o progresso inicial
+atualizarProgresso();

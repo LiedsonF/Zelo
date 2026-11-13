@@ -643,6 +643,25 @@ main {
     background-color: var(--cor-primaria-escura);
 }
 
+.btn-excluir {
+    background-color: var(--cor-perigo-clara);
+    color: var(--cor-perigo);
+    border: 1.5px solid var(--cor-perigo);
+    border-radius: 13px;
+    padding: 12px 16px;
+    font-family: var(--font-lato);
+    font-size: var(--tamanho-botao);
+    font-weight: var(--lato-bold);
+    cursor: pointer;
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-excluir:hover {
+    background-color: var(--cor-perigo);
+    color: #FFFFFF;
+}
+
 /* RESPONSIVIDADE */
 
 @media (max-width: 480px) {
