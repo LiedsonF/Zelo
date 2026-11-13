@@ -141,7 +141,7 @@ main {
     }
 
     .box-2-header {
-        div {
+    > div:first-child {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -163,7 +163,6 @@ main {
 
             span {
                 display: block;
-                width: 40%;
                 height: 100%;
                 background-color: var(--cor-primaria);
                 border-radius: 20px;
@@ -524,6 +523,29 @@ main {
     padding: 10px 14px;
     font-size: var(--tamanho-botao);
     font-weight: var(--lato-bold);
+
+    input[type="text"] {
+        width: 110px;
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        outline: none;
+        background: transparent;
+        color: var(--cor-primaria);
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: normal;
+        box-shadow: none;
+        appearance: none;
+    }
+
+    input[type="text"]::placeholder {
+        color: var(--cor-primaria);
+        opacity: 0.6;
+    }
 }
 
 .btn-remover-horario {
