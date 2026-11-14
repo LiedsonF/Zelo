@@ -183,3 +183,100 @@ body {
 
     transition: 0.3s;
 }
+
+
+/*===========================================================
+Section 1 */
+
+.container-site-1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: var(--cor-superficie);
+    margin: 0 auto;
+    padding: 0 30px;
+    border-top: var(--borda-section);
+    border-bottom: var(--borda-section);
+    h2 {
+        font-weight: var(--lato-bold);
+        margin-bottom: var(--gap-1);
+        margin-top: var(--gap-3);
+    }
+    .box-1-section-1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--gap-1);
+        margin-bottom: var(--gap-2);
+        
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            border: var(--borda-section);
+            background-color: var(--cor-fundo);
+            border-radius: 1rem;
+            padding: var(--pd-1);
+            h3 {
+                font-size: var(--tamanho-titulo-tela);
+            }
+            p {
+                font-size: var(--tamanho-texto);
+            }
+           
+        }
+    }
+}
+
+/*===========================================================
+Section 2 */
+
+.container-site-2 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-top: var(--gap-3);
+    .box-1-section-2 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-1);
+        h2 {
+        font-weight: var(--lato-bold);
+        }
+        p {
+            font-size: var(--tamanho-texto);
+        }
+    }
+    .box-2-section-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        background-color:#FDE8E6;
+        padding: 1rem 1.25rem 3rem 1.25rem;
+        border-left: solid 10px var(--cor-perigo);
+        border-radius: 0.75rem;
+        h2 {
+            font-size: var(--tamanho-titulo);
+            font-weight: 900;
+            color: var(--cor-perigo);
+        }
+        p {
+            font-size: var(--tamanho-texto);
+        }
+        a {
+            font-size: var(--tamanho-etiqueta);
+            color: var(--cor-texto-suave);
+        }
+    }
+    .box-3-section-2 {
+        p {
+            font-size: var(--tamanho-texto);
+        }
+        a {
+            font-size: var(--tamanho-etiqueta);
+            color: var(--cor-texto-suave);
+        }
+    }
+
+}
