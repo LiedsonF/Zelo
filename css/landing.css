@@ -102,14 +102,17 @@ body {
 
 .site-nav a {
     text-decoration: none;
-    color: var(--cor-texto-suave);
+    color: var(--cor-texto);
     font-size: 14px;
     font-weight: 700;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .site-nav a:hover {
-    color: var(--cor-primaria);
+    background-color: var(--cor-primaria);
+    border-radius: 30px;
+    padding: 10px;
+    color: #FFFFFF;
 }
 
 .hero .container-site {
@@ -440,6 +443,7 @@ Section 2 */
     font-weight: var(--lato-bold);
 }
 
+
 /* ======================================================== 
  Section 5*/
 
@@ -502,3 +506,81 @@ Section 2 */
         }
     }
  }
+
+/*Prévia do Cadastro*/
+
+.cadastro-preview-section {
+    background-color: var(--cor-fundo);
+    padding: var(--pd-3) 2.5rem 4.5rem 2.5rem;
+    border-top: var(--borda-section);
+}
+
+.cadastro-header {
+    max-width: 1100px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.cadastro-eyebrow {
+    display: block;
+    font-size: var(--tamanho-etiqueta);
+    font-weight: var(--lato-bold);
+    color: var(--cor-primaria);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.cadastro-title {
+    font-size: 2.25rem;
+    font-weight: var(--lato-bold);
+    color: var(--cor-texto);
+    line-height: 1.2;
+    margin-bottom: 0.65rem;
+}
+
+.cadastro-subtitle {
+    font-size: var(--tamanho-texto);
+    color: var(--cor-texto-secundario);
+}
+
+.cadastro-svg-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.cadastro-svg-wrapper svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cadastro-cta-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.25rem;
+}
+
+.btn-prototipo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+    font-family: 'Inter', var(--font-lato);
+    font-size: 1.05rem;
+    font-weight: var(--lato-bold);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px -4px rgba(29, 78, 216, 0.35);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-prototipo:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -4px rgba(30, 58, 138, 0.45);
+}
