@@ -58,8 +58,9 @@ html {
 
 body {
     font-family: var(--font-lato);
-    background-color: var(--cor-fundo);
+    font-weight: var(--lato-regular);
     color: var(--cor-texto);
+    background-color: var(--cor-fundo);
 }
 
 .container-site {
@@ -111,20 +112,32 @@ body {
     color: var(--cor-primaria);
 }
 
-.hero {
-    min-height: 650px;
-    padding: 80px 0;
-    display: flex;
-    align-items: center;
-}
-
 .hero .container-site {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .hero-content {
-    max-width: 600px;
+    flex: 1;
+    order: 1;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    order: 2;
+}
+
+.hero-image img {
+    padding: 10px;
+    width: 80%;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
 }
 
 .hero-tag {
@@ -183,10 +196,6 @@ body {
 
     transition: 0.3s;
 }
-
-
-/*===========================================================
-Section 1 */
 
 .container-site-1 {
     display: flex;
@@ -280,3 +289,152 @@ Section 2 */
     }
 
 }
+
+.btn-primary {
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+    border: 2px solid var(--cor-primaria);
+    border-radius: 15px;
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+    border-radius: 15px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-primaria-clara);
+    transform: translateY(-3px);
+}
+
+/*Nossa Proposta*/
+
+.container-proposta {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.proposta-section {
+    background-color: var(--cor-superficie);
+    padding: var(--pd-3) 0;
+    border-bottom: var(--borda-section);
+}
+
+.titulo-proposta {
+    font-size: var(--tamanho-titulo);
+    font-weight: var(--lato-bold);
+    color: var(--cor-texto);
+    margin-bottom: var(--gap-1);
+}
+
+.subtitulo-proposta {
+    font-size: var(--tamanho-nome-remedio);
+    line-height: 1.5;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 1.5rem;
+}
+
+.lista-features {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin-bottom: var(--gap-2);
+}
+
+.lista-features li {
+    font-size: var(--tamanho-texto);
+    line-height: 1.75;
+    color: var(--cor-texto);
+}
+
+.btn-proposta {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+    font-size: var(--tamanho-botao);
+    font-weight: var(--lato-bold);
+    text-decoration: none;
+    padding: var(--pd-1) 1.625rem;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.btn-proposta:hover {
+    background-color: var(--cor-primaria-escura);
+}
+
+/*ODS ligados à solução*/
+
+.ods-section {
+    background-color: var(--cor-fundo);
+    padding: var(--pd-3) 0 4.5rem 0;
+}
+
+.ods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-1);
+}
+
+.ods-card {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda-input);
+    border-radius: 16px;
+    padding: var(--pd-1);
+    display: flex;
+    align-items: center;
+    gap: var(--gap-1);
+}
+
+.ods-badge {
+    width: 92px;
+    height: 92px;
+    min-width: 92px;
+    border-radius: 10px;
+    padding: 0.625rem 0.625rem 0.75rem 0.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--cor-superficie);
+}
+
+
+.ods-3 {
+    background-color: #2c7a26;
+}
+
+.ods-10 {
+    background-color: #c2185b;
+}
+
+.ods-number {
+    font-size: var(--tamanho-titulo);
+    font-weight: var(--lato-bold);
+    line-height: 1;
+}
+
+.ods-label {
+    font-size: 0.53rem;
+    font-weight: var(--lato-bold);
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.ods-description {
+    font-size: var(--tamanho-texto);
+    line-height: 1.5;
+    color: var(--cor-texto);
+}
+
+.ods-description strong {
+    font-weight: var(--lato-bold);
+}
+
