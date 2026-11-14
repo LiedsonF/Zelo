@@ -1,124 +1,83 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZELO</title>
+
+    <title>ZELO | Cuidado que acompanha você</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/landing.css">
 </head>
 
 <body>
-    
-    <header class="container container-header">
-        <div class="box box-1-header">
-            <div>
-                <p id ="data-atual">Quarta, 11 de novembro</p>
-                <h2>Meus remédios</h2>
-            </div>
-            <div class="mini-box-botoes">
-                <a href="adicionar.html">
-                    <img src="./images/circle-plus.svg" alt="Remédio">
-                </a>
-                <button class="btn-excluir" type="button">
-                    <img src="./images/trash.svg" alt="Excluir">
-                </button>
-            </div>
+
+    <header class="site-header">
+
+        <div class="container-site">
+
+            <a href="#inicio" class="logo">ZELO</a>
+
+            <nav class="site-nav">
+                <a href="#inicio">Início</a>
+                <a href="#problema">O problema</a>
+                <a href="#solucao">Solução</a>
+                <a href="#impacto">Impacto</a>
+                <a href="#equipe">Equipe</a>
+            </nav>
+
         </div>
-        <div class="box box-2-header">
-            <div>
-                <p id="texto-progresso">2 de 5 doses tomadas</p>
-                <p id="porcentagem-progresso">40%</p>
-            </div>
-            <div class="info-progresso">
-                <span id="barra-preenchimento"></span>
-            </div>
-        </div>
+
     </header>
+
+
     <main>
-        <section class="container container-atrasadas">
-            <h3 class="titulo-atrasadas">ATRASADAS</h3>
 
-            <div class="box box-atrasada">
+        <section class="hero" id="inicio">
 
-                <div class="info-medicamento">
-                    <h4>Losartana</h4>
-                    <p>50 mg . 1 comprimido . 08:00</p>
+            <div class="container-site">
+
+                <div class="hero-content">
+
+                    <span class="hero-tag">
+                        Cuidado simples, todos os dias
+                    </span>
+
+                    <h1>
+                        Nunca mais esqueça de tomar um remédio.
+                    </h1>
+
+                    <p>
+                        O ZELO é um lembrete de medicamentos simples e acessível,
+                        pensado para quem toma vários remédios por dia e não pode
+                        errar o horário.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="solucao.html" class="btn-primary">
+                            Testar a simulação
+                        </a>
+
+                        <a href="adicionar.html" class="btn-secondary">
+                            Adicionar remédio
+                        </a>
+
+                    </div>
+
                 </div>
 
-                <div class="status-medicamento">
-                    <span>!</span>
-                </div>
-
-                <button class="btn-tomei">
-                    Tomei
-                </button>
             </div>
+
         </section>
 
-        <section class="container container-proximas">
-            <h3 class="titulo-proximas">PRÓXIMAS</h3>
- 
-        <div class="box box-proximas">
-
-            <div class="info-medicamento">
-                <h4>Metformina</h4>
-                <p>500 mg . 1 comprimido . 12:00</p>
-            </div>
-            
-            <button class="btn-tomei">
-                    Tomei
-            </button>
-        </div>
-
-        <div class="box box-proximas">
-
-            <div class="info-medicamento">
-                <h4>Vitamina D</h4>
-                <p>1 cápsula . 14:00</p>
-            </div>
-            
-            <button class="btn-tomei">
-                    Tomei
-            </button>
-        </div>
-
-        </section>
-        <section class="container container-tomadas" id="container-tomadas">
-            <h3 class="titulo-tomadas">TOMADAS</h3>
-
-
-            <div class="box box-tomadas">
-                <a href="#">
-                    <img src="images/check.svg" alt="Check">
-                </a>
-                <div>
-                    <h4>Omeprazol</h4>
-                    <p>20mg . tomado às 07:05</p>
-                </div>
-            </div>
-            <div class="box box-tomadas">
-                <a href="#">
-                    <img src="images/check.svg" alt="Check">
-                </a>
-                <div>
-                    <h4>Sinvastatina</h4>
-                    <p>20mg . tomado às 07:10</p>
-                </div>
-            </div>
-        </section>
     </main>
-    <footer class="container container-footer">
-    <a href="adicionar.html" class="btn-adicionar-footer">
-        + Adicionar remédio
-    </a>
-</footer>
 
-
-    <script src="./js/app.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,84 @@
+/*criado para não interferir na dashboard já existente*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #1D4ED8;
+    --cor-primaria-escura: #1E3A8A;
+    --cor-primaria-clara: #EFF4FF;
+
+    --cor-fundo: #F4F6F8;
+    --cor-superficie: #FFFFFF;
+
+    --cor-texto: #111827;
+    --cor-texto-secundario: #344054;
+    --cor-texto-suave: #4B5563;
+
+    --cor-borda: #E5E7EB;
+    --cor-borda-input: #D0D5DD;
+    --cor-borda-tracejada: #98A2B3;
+
+    --cor-perigo: #B42318;
+    --cor-perigo-clara: #FEF3F2;
+
+    --cor-sucesso: #067647;
+    --cor-sucesso-clara: #ECFDF3;
+
+    --font-lato: "Lato", sans-serif;
+    --lato-bold: 700;
+    --lato-regular: 400;
+
+    --tamanho-titulo: 1.625rem;
+    --tamanho-titulo-tela: 1.375rem;
+    --tamanho-nome-remedio: 1.125rem;
+    --tamanho-input: 1.0625rem;
+    --tamanho-botao: 1rem;
+    --tamanho-texto: 0.9375rem;
+    --tamanho-secao: 0.875rem;
+    --tamanho-etiqueta: 0.8125rem;
+
+    --borda-section: solid 1px var(--cor-borda);
+
+    --pd-1: 1rem;
+    --pd-2: 2rem;
+    --pd-3: 3rem;
+    --pd-body: 2rem 1.25rem;
+
+    --gap-1: 1rem;
+    --gap-2: 2rem;
+    --gap-3: 3rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-lato);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.header {
+    width: 100%;
+    background-color: var(--cor-superficie);
+    border-bottom: var(--borda-section);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
