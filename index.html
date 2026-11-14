@@ -1,288 +1,666 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      ZELO | Cuidado que acompanha você
-    </title>
+
+    <title>ZELO | Cuidado que acompanha você</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/landing.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container-site"><a href="#inicio" class="logo">ZELO</a>
-        <nav class="site-nav"><a href="#inicio">Início</a><a href="#problema">O problema</a><a href="#solucao">Solução</a><a href="#impacto">Impacto</a><a href="#equipe">Equipe</a>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <section class="hero" id="inicio">
-        <div class="container-site">
-          <div class="hero-image"><img src="./images/celular.png" alt="imagem de um celular" />
-          </div>
-          <div class="hero-content"><span class="hero-tag">Cuidado simples, todos os dias</span>
-            <h1>
-              Nunca mais esqueça de tomar um remédio.
-            </h1>
-            <p>
-              O ZELO é um lembrete de medicamentos simples e acessível, pensado para quem toma vários remédios por dia e não pode errar o horário.
-            </p>
-            <div class="hero-buttons"><a href="solucao.html" class="btn-primary">Testar a simulação</a><a href="adicionar.html" class="btn-secondary">Adicionar remédio</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="container-site-1">
-        <h2>
-          Quem é o cidadão?
-        </h2>
-        <div class="box-1-section-1">
-          <div>
-            <h3>
-              Dona Maria, 68 anos
-            </h3>
-            <p>
-              Persona criada para o projeto. Tem hipertensão e diabetes, toma cinco remédios em horários diferentes e mora sozinha. Usa o celular, mas prefere telas grandes e com poucas opções.
-            </p>
-          </div>
-          <div>
-            <h3>
-              Quem cuida dela
-            </h3>
-            <p>
-              Filhos e cuidadores que querem ter certeza de que a dose foi tomada, sem precisar ligar várias vezes ao dia.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="container-site-2">
-        <div class="box-1-section-2">
-          <h2>
-            Qual problema ele enfrenta?
-          </h2>
-          <p>
-            Quem trata uma doença crônica precisa seguir o tratamento todos os dias, por anos. Esquecer doses ou trocar horários é muito comum.
-          </p>
-        </div>
-        <div class="box-2-section-2">
-          <h2>
-            ~ 50 %
-          </h2>
-          <p>
-            Em países desenvolvidos, apenas cerca de metade dos pacientes com doenças crônicas segue o tratamento como foi prescrito. Nos países em desenvolvimento, a Organização Mundial da Saúde - OMS avalia que o índice tende a ser ainda menor.
-          </p>
-          <a href="iris.who.int/handle/10665/42682"><span>Fonte: OMS 2003. Adherence to long-term therapies: evidence for action.</span></a>
-        </div>
-        <div class="box-3-section-2">
-          <p>No Brasil, o público que mais precisa de apoio cresce: o Censo 2022 do IBGE contou mais de 32 milhões de pessoas com 60 anos ou mais.<br /><a href="https://censo2022.ibge.gov.br/">Fonte: IBGE, Censo Demográfico 2022</a>
-          </p>
-        </div>
-      </section>
-      <section class="proposta-section">
-        <div class="container-proposta">
-          <h1 class="titulo-proposta">
-            Nossa Proposta
-          </h1>
-          <p class="subtitulo-proposta">Uma aplicativo web com a lista de doses do dia, destaque para o que está<br />atrasado e um botão grande de "Tomei".
-          </p>
-          <ul class="lista-features">
-            <li>
-              Cadastro rápido de remédio, dose horários e frequência.
-            </li>
-            <li>
-              Barra de progresso mostrando quantas doses do diajá foram tomadas
-            </li>
-            <li>
-              Alertas visuais para doses atrasadas, com cores e texto (não só cor).
-            </li>
-          </ul>
-          <a href="#" class="btn-proposta">Ver como funciona</a>
-        </div>
-      </section>
-      <section class="ods-section">
-        <div class="container-proposta">
-          <h2 class="titulo-proposta">
-            ODS ligados à solução
-          </h2>
-          <div class="ods-grid">
-            <div class="ods-card">
-              <div class="ods-badge ods-3"><span class="ods-number">3</span><span class="ods-label">SAÚDE E<br />BEM-ESTAR</br></span>
-              </div>
-              <p class="ods description"><strong>ODS 3 · Saúde e Bem-Estar.</strong>Ajuda no tratamento<br />correto de doenças crônicas.
-              </p>
-            </div>
-            <div class="ods-card">
-              <div class="ods-badge ods-10"><span class="ods-number">10</span><span class="ods-label">REDUÇÃO DAS<br />DESIGUALDADES</span>
-              </div>
-              <p class="ods-description"><strong>ODS 10 · Redução das Desigualdades.</strong>Interface<br />simples e acessível para idosos e pessoas com<br />pouca familiaridade com tecnlogia.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-      </section>
 
-        <section class="container-site-5">
-            <div class="box-1-section-5">
-                <h6>SIMULAÇÃO INTERATIVA</h6>
-                <h2>Como o ZELO funciona</h2>
-                <p>Teste abaixo: marque as doses como tomadas, mude a hora simulada e veja o
-                status e o progresso mudarem na hora.</p>
-            </div>
-            <div class="box-2-section-5">
-                <img src="./images/meus-remedios.svg" alt="Formulário Remédio">
-            </div>
-            <div class="box-3-section-5">
-                <h3>Passo a passo</h3>
-                <ol>
-                    <li>A pessoa cadastra o remédio, a dose e os horários.</li>
-                    <li>O ZELO monta a lista do dia e separa em atrasadas, próximas e tomadas.</li>
-                    <li>Ao tomar, ela toca em "Tomei" e a barra de progresso é atualizada.</li>
-                </ol>
-                <p>Remédios cadastrados na página "Adicionar remédio" aparecem aqui automaticamente.</p>
-            </div>
-        </section>
-                <section class="cadastro-preview-section">
-        <div class="container">
-          <div class="cadastro-header"><span class="cadastro-eyebrow">CADASTRO</span>
-            <h2 class="cadastro-title">
-              Adicionar remédio
-            </h2>
-            <p class="cadastro-subtitle">
-              Preencha os dados. Campos com * são obrigatórios.
-            </p>
-          </div>
-          <div class="cadastro-svg-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="489" height="630" viewBox="0 0 489 630" font-family="Lato, 'Segoe UI', Roboto, Arial, sans-serif">
-              <rect x="8.5" y="6.5" width="475" height="616" rx="16" fill="#FFFFFF" stroke="#E5E7EB" />
-              <text x="26" y="39" font-size="14" font-weight="700" fill="#111827">
-                Nome do remédio *
-              </text>
-              <rect x="26.5" y="50.5" width="439" height="43" rx="9" fill="#FFFFFF" stroke="#9CA3AF" />
-              <text x="40" y="77" font-size="14" fill="#6B7280">
-                Ex.: Losartana
-              </text>
-              <text x="26" y="125" font-size="14" font-weight="700" fill="#111827">
-                Dose *
-              </text>
-              <rect x="26.5" y="136.5" width="439" height="43" rx="9" fill="#FFFFFF" stroke="#9CA3AF" />
-              <text x="40" y="163" font-size="14" fill="#6B7280">
-                Ex.: 50 mg, 1 comprimido
-              </text>
-              <text x="26" y="212" font-size="14" font-weight="700" fill="#111827">
-                Horários *
-              </text>
-              <rect x="26.5" y="224.5" width="330" height="44" rx="9" fill="#FFFFFF" stroke="#111827" />
-              <text x="40" y="252" font-size="15" fill="#111827">
-                --:-- --
-              </text>
-              <circle cx="335" cy="246.5" r="6" fill="none" stroke="#111827" stroke-width="1.6" />
-              <path d="M335 243 V246.5 L337.5 248" fill="none" stroke="#111827" stroke-width="1.6" stroke-linecap="round" />
-              <rect x="366.5" y="223.5" width="99" height="46" rx="9" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2" />
-              <text x="416" y="251" font-size="14" font-weight="700" fill="#1D4ED8" text-anchor="middle">
-                + Horário
-              </text>
-              <rect x="26" y="279" width="96" height="36" rx="18" fill="#EFF4FF" />
-              <text x="40" y="302" font-size="14" font-weight="700" fill="#1E3A8A">
-                08:00
-              </text>
-              <text x="100" y="302" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">
-                ×
-              </text>
-              <rect x="128" y="279" width="95" height="36" rx="18" fill="#EFF4FF" />
-              <text x="142" y="302" font-size="14" font-weight="700" fill="#1E3A8A">
-                20:00
-              </text>
-              <text x="202" y="302" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">
-                ×
-              </text>
-              <text x="26" y="348" font-size="14" font-weight="700" fill="#111827">
-                Frequência *
-              </text>
-              <rect x="26.5" y="359.5" width="439" height="40" rx="7" fill="#FFFFFF" stroke="#9CA3AF" />
-              <text x="43" y="384" font-size="14" fill="#111827">
-                Todos os dias
-              </text>
-              <path d="M455 377 L459 381 L463 377" fill="none" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(-4 0)" />
-              <text x="26" y="431" font-size="14" font-weight="700" fill="#111827">
-                Observações
-                <tspan font-weight="400" fill="#374151">
-                  (opcional)
-                </tspan>
-              </text>
-              <rect x="26.5" y="442.5" width="439" height="92" rx="9" fill="#FFFFFF" stroke="#9CA3AF" />
-              <text x="40" y="468" font-size="14" fill="#6B7280">
-                Ex.: tomar depois do café da manhã
-              </text>
-              <path d="M455 531 L462 524 M459 531 L462 528" stroke="#9CA3AF" stroke-width="1.2" stroke-linecap="round" />
-              <rect x="26.5" y="558.5" width="98" height="46" rx="9" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2" />
-              <text x="75.5" y="586" font-size="14" font-weight="700" fill="#1D4ED8" text-anchor="middle">
-                Cancelar
-              </text>
-              <rect x="134" y="558" width="139" height="47" rx="9" fill="#1D4ED8" />
-              <text x="203.5" y="586" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">
-                Salvar remédio
-              </text>
-            </svg>
-            <div class="cadastro-cta-wrapper"><a href="cadastro.html" class="btn-prototipo"><span>Testar protótipo interativo →</span></a>
-            </div>
-        </section>
-          </div>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700;900&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/landing.css" />
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="site-header">
+        <div class="container-site">
+
+            <a href="#inicio" class="logo">ZELO</a>
+
+            <nav class="site-nav">
+                <a href="#inicio">Início</a>
+                <a href="#problema">O problema</a>
+                <a href="#solucao">Solução</a>
+                <a href="#impacto">Impacto</a>
+                <a href="#equipe">Equipe</a>
+            </nav>
+
         </div>
-      </section>
-      <section class="container-site-7">
-        <div class="box-1-section-7">
-            <div class="box-1-div-1">
-                <h6>QUEM FEZ</h6>
-                <h2>Nossa Equipe</h2>
-                <p>Projeto desenvolvido para a Global Solution 2026/2 · CitizenTech, FIAP.</p>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="inicio">
+            <div class="container-site">
+
+                <div class="hero-image">
+                    <img
+                        src="./images/celular.png"
+                        alt="Imagem de um celular apresentando o ZELO"
+                    />
+                </div>
+
+                <div class="hero-content">
+
+                    <span class="hero-tag">
+                        Cuidado simples, todos os dias
+                    </span>
+
+                    <h1>
+                        Nunca mais esqueça de tomar um remédio.
+                    </h1>
+
+                    <p>
+                        O ZELO é um lembrete de medicamentos simples e acessível,
+                        pensado para quem toma vários remédios por dia e não pode
+                        errar o horário.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="solucao.html" class="btn-primary">
+                            Testar a simulação
+                        </a>
+
+                        <a href="adicionar.html" class="btn-secondary">
+                            Adicionar remédio
+                        </a>
+                    </div>
+
+                </div>
             </div>
-            <div class="box-2-div-1">
-                <h4>Integrantes</h4>
-                <div class="gridbox-div-1">
-                    <div class="card-integrante">
-                        <p class="numero-integrante">1</p>
-                        <p class="nome-integrante">Nome do integrante 1</p>
-                        <p class="rm-integrante">RM [0000000]</p>
+        </section>
+
+        <!-- QUEM É O CIDADÃO -->
+        <section class="container-site-1">
+
+            <h2>Quem é o cidadão?</h2>
+
+            <div class="box-1-section-1">
+
+                <div>
+                    <h3>Dona Maria, 68 anos</h3>
+
+                    <p>
+                        Persona criada para o projeto. Tem hipertensão e diabetes,
+                        toma cinco remédios em horários diferentes e mora sozinha.
+                        Usa o celular, mas prefere telas grandes e com poucas opções.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Quem cuida dela</h3>
+
+                    <p>
+                        Filhos e cuidadores que querem ter certeza de que a dose
+                        foi tomada, sem precisar ligar várias vezes ao dia.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROBLEMA -->
+        <section class="container-site-2" id="problema">
+
+            <div class="box-1-section-2">
+
+                <h2>Qual problema ele enfrenta?</h2>
+
+                <p>
+                    Quem trata uma doença crônica precisa seguir o tratamento
+                    todos os dias, por anos. Esquecer doses ou trocar horários
+                    é muito comum.
+                </p>
+
+            </div>
+
+            <div class="box-2-section-2">
+
+                <h2>~ 50 %</h2>
+
+                <p>
+                    Em países desenvolvidos, apenas cerca de metade dos pacientes
+                    com doenças crônicas segue o tratamento como foi prescrito.
+                    Nos países em desenvolvimento, a Organização Mundial da Saúde
+                    (OMS) avalia que o índice tende a ser ainda menor.
+                </p>
+
+                <a href="https://iris.who.int/handle/10665/42682">
+                    <span>
+                        Fonte: OMS 2003. Adherence to long-term therapies:
+                        evidence for action.
+                    </span>
+                </a>
+
+            </div>
+
+            <div class="box-3-section-2">
+
+                <p>
+                    No Brasil, o público que mais precisa de apoio cresce:
+                    o Censo 2022 do IBGE contou mais de 32 milhões de pessoas
+                    com 60 anos ou mais.
+                    <br />
+
+                    <a href="https://censo2022.ibge.gov.br/">
+                        Fonte: IBGE, Censo Demográfico 2022
+                    </a>
+                </p>
+
+            </div>
+        </section>
+
+        <!-- NOSSA PROPOSTA -->
+        <section class="proposta-section" id="solucao">
+
+            <div class="container-proposta">
+
+                <h1 class="titulo-proposta">
+                    Nossa Proposta
+                </h1>
+
+                <p class="subtitulo-proposta">
+                    Um aplicativo web com a lista de doses do dia, destaque
+                    para o que está atrasado e um botão grande de "Tomei".
+                </p>
+
+                <ul class="lista-features">
+
+                    <li>
+                        Cadastro rápido de remédio, dose, horários e frequência.
+                    </li>
+
+                    <li>
+                        Barra de progresso mostrando quantas doses do dia
+                        já foram tomadas.
+                    </li>
+
+                    <li>
+                        Alertas visuais para doses atrasadas, com cores e texto
+                        (não só cor).
+                    </li>
+
+                </ul>
+
+                <a href="#simulacao" class="btn-proposta">
+                    Ver como funciona
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ODS LIGADOS À SOLUÇÃO -->
+        <section class="ods-section">
+
+            <div class="container-proposta">
+
+                <h2 class="titulo-proposta">
+                    ODS ligados à solução
+                </h2>
+
+                <div class="ods-grid">
+
+                    <div class="ods-card">
+
+                        <div class="ods-badge ods-3">
+
+                            <span class="ods-number">3</span>
+
+                            <span class="ods-label">
+                                SAÚDE E<br />BEM-ESTAR
+                            </span>
+
+                        </div>
+
+                        <p class="ods-description">
+                            <strong>ODS 3 · Saúde e Bem-Estar.</strong>
+                            Ajuda no tratamento correto de doenças crônicas.
+                        </p>
+
                     </div>
-                    <div class="card-integrante">
-                        <p class="numero-integrante">2</p>
-                        <p class="nome-integrante">Nome do integrante 2</p>
-                        <p class="rm-integrante">RM [0000000]</p>   
+
+                    <div class="ods-card">
+
+                        <div class="ods-badge ods-10">
+
+                            <span class="ods-number">10</span>
+
+                            <span class="ods-label">
+                                REDUÇÃO DAS<br />DESIGUALDADES
+                            </span>
+
+                        </div>
+
+                        <p class="ods-description">
+                            <strong>ODS 10 · Redução das Desigualdades.</strong>
+                            Interface simples e acessível para idosos e pessoas
+                            com pouca familiaridade com tecnologia.
+                        </p>
+
                     </div>
-                    <div class="card-integrante">
-                        <p class="numero-integrante">3</p>
-                        <p class="nome-integrante">Nome do integrante 3</p>
-                        <p class="rm-integrante">RM [0000000]</p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMULAÇÃO -->
+        <section class="container-site-5" id="simulacao">
+
+            <div class="box-1-section-5">
+
+                <h6>SIMULAÇÃO INTERATIVA</h6>
+
+                <h2>Como o ZELO funciona</h2>
+
+                <p>
+                    Teste abaixo: marque as doses como tomadas, mude a hora
+                    simulada e veja o status e o progresso mudarem na hora.
+                </p>
+
+            </div>
+
+            <div class="box-2-section-5">
+
+                <img
+                    style="width: 100%; max-width: 30rem; height: auto; display: block; margin: 0 auto;"
+                    src="./images/meus-remedios.svg"
+                    alt="Tela de meus remédios"
+                />
+
+            </div>
+
+            <div class="box-3-section-5">
+
+                <h3>Passo a passo</h3>
+
+                <ol>
+
+                    <li>
+                        A pessoa cadastra o remédio, a dose e os horários.
+                    </li>
+
+                    <li>
+                        O ZELO monta a lista do dia e separa em atrasadas,
+                        próximas e tomadas.
+                    </li>
+
+                    <li>
+                        Ao tomar, ela toca em "Tomei" e a barra de progresso
+                        é atualizada.
+                    </li>
+
+                </ol>
+
+                <p>
+                    Remédios cadastrados na página "Adicionar remédio"
+                    aparecem aqui automaticamente.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- CADASTRO -->
+        <section class="cadastro-preview-section">
+
+            <div class="container">
+
+                <div class="cadastro-header">
+
+                    <span class="cadastro-eyebrow">
+                        CADASTRO
+                    </span>
+
+                    <h2 class="cadastro-title">
+                        Adicionar remédio
+                    </h2>
+
+                    <p class="cadastro-subtitle">
+                        Preencha os dados. Campos com * são obrigatórios.
+                    </p>
+
+                </div>
+
+                <div class="cadastro-svg-wrapper">
+
+                    <img
+                        style="width: 100%; max-width: 30rem; height: auto; display: block; margin: 0 auto;"
+                        src="./images/formulario-remedio.svg"
+                        alt="Formulário de adicionar remédio"
+                    />
+
+                    <div class="cadastro-cta-wrapper">
+
+                        <a href="cadastro.html" class="btn-prototipo">
+                            <span>Testar protótipo interativo →</span>
+                        </a>
+
                     </div>
-                    <div class="card-integrante">
-                        <p class="numero-integrante">4</p>
-                        <p class="nome-integrante">Nome do integrante 4</p>
-                        <p class="rm-integrante">RM [0000000]</p>
-                    </div>
-                    <div class="card-integrante">
-                        <p class="numero-integrante">5</p>
-                        <p class="nome-integrante">Nome do integrante 5</p>
-                        <p class="rm-integrante">RM [0000000]</p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EQUIPE -->
+        <section class="container-site-7" id="equipe">
+
+            <div class="box-1-section-7">
+
+                <div class="box-1-div-1">
+
+                    <h6>QUEM FEZ</h6>
+
+                    <h2>Nossa Equipe</h2>
+
+                    <p>
+                        Projeto desenvolvido para a Global Solution 2026/2
+                        · CitizenTech, FIAP.
+                    </p>
+
+                </div>
+
+                <div class="box-2-div-1">
+
+                    <h4>Integrantes</h4>
+
+                    <div class="gridbox-div-1">
+
+                        <div class="card-integrante">
+                            <p class="numero-integrante">1</p>
+                            <p class="nome-integrante">Nome do integrante 1</p>
+                            <p class="rm-integrante">RM [0000000]</p>
+                        </div>
+
+                        <div class="card-integrante">
+                            <p class="numero-integrante">2</p>
+                            <p class="nome-integrante">Nome do integrante 2</p>
+                            <p class="rm-integrante">RM [0000000]</p>
+                        </div>
+
+                        <div class="card-integrante">
+                            <p class="numero-integrante">3</p>
+                            <p class="nome-integrante">Nome do integrante 3</p>
+                            <p class="rm-integrante">RM [0000000]</p>
+                        </div>
+
+                        <div class="card-integrante">
+                            <p class="numero-integrante">4</p>
+                            <p class="nome-integrante">Nome do integrante 4</p>
+                            <p class="rm-integrante">RM [0000000]</p>
+                        </div>
+
+                        <div class="card-integrante">
+                            <p class="numero-integrante">5</p>
+                            <p class="nome-integrante">Nome do integrante 5</p>
+                            <p class="rm-integrante">RM [0000000]</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="container-pitch">
-        <div class="box-pitch">
-            <h4>Pitch do projeto</h4>
-            <a href="#">Assista ao vídeo de apresentação</a>
-        </div>
-    </section>
+        </section>
+
+        <!-- PITCH -->
+        <section class="container-pitch">
+
+            <div class="box-pitch">
+
+                <h4>Pitch do projeto</h4>
+
+                <a href="#">
+                    Assista ao vídeo de apresentação
+                </a>
+
+            </div>
+        </section>
+
+        <!-- IMPACTO DO ZELO -->
+        <section class="impacto-section" id="impacto">
+
+            <div class="container">
+
+                <div class="impacto-header">
+
+                    <span class="impacto-eyebrow">
+                        RESULTADOS ESPERADOS
+                    </span>
+
+                    <h2 class="impacto-title">
+                        Impacto do ZELO
+                    </h2>
+
+                    <p class="impacto-subtitle">
+                        Como a solução ajuda o cidadão e como pretendemos
+                        medir esse resultado.
+                    </p>
+
+                </div>
+
+                <div class="antes-depois-wrapper">
+
+                    <h3 class="antes-depois-title">
+                        Antes e depois
+                    </h3>
+
+                    <p class="antes-depois-caption">
+                        Comparação da rotina de medicação da Dona Maria
+                    </p>
+
+                    <div class="table-responsive">
+
+                        <table class="comparacao-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Situação</th>
+                                    <th>Sem o ZELO</th>
+                                    <th>Com o ZELO</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Lembrar do horário</td>
+
+                                    <td>
+                                        Depende da memória ou de papéis
+                                        colados na geladeira.
+                                    </td>
+
+                                    <td>
+                                        Lista do dia com destaque para
+                                        o que está atrasado.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Saber se já tomou</td>
+
+                                    <td>
+                                        Dúvida frequente; risco de repetir
+                                        ou pular a dose.
+                                    </td>
+
+                                    <td>
+                                        Histórico do dia com o horário em
+                                        que cada dose foi tomada.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Acompanhamento</td>
+
+                                    <td>
+                                        Familiares precisam ligar para perguntar.
+                                    </td>
+
+                                    <td>
+                                        Barra de progresso mostra rapidamente
+                                        o andamento do dia.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMO VAMOS MEDIR -->
+        <section class="medir-section">
+
+            <div class="container">
+
+                <h2 class="medir-title">
+                    Como vamos medir
+                </h2>
+
+                <div class="medir-grid">
+
+                    <div class="medir-card">
+
+                        <h3>Doses tomadas no dia</h3>
+
+                        <p>
+                            Percentual de doses marcadas como "Tomei"
+                            em relação ao total programado.
+                        </p>
+
+                    </div>
+
+                    <div class="medir-card">
+
+                        <h3>Doses atrasadas</h3>
+
+                        <p>
+                            Quantidade de doses que passaram do horário
+                            sem confirmação.
+                        </p>
+
+                    </div>
+
+                    <div class="medir-card">
+
+                        <h3>Facilidade de uso</h3>
+
+                        <p>
+                            Teste com pessoas idosas: elas conseguem
+                            cadastrar um remédio sozinhas?
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <p class="section-footnote">
+                    Indicadores de acompanhamento do protótipo,
+                    ainda sem dados de uso real.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- CONTRIBUIÇÃO PARA OS ODS -->
+        <section class="ods-contribuicao-section">
+
+            <div class="container">
+
+                <h2 class="medir-title">
+                    Contribuição para os ODS
+                </h2>
+
+                <div class="ods-grid">
+
+                    <div class="ods-card">
+
+                        <div class="ods-badge ods-3">
+
+                            <span class="ods-number">3</span>
+
+                            <span class="ods-label">
+                                SAÚDE E<br />BEM-ESTAR
+                            </span>
+
+                        </div>
+
+                        <p class="ods-description">
+                            <strong>ODS 3.</strong>
+                            Apoia a meta 3.4, de reduzir a mortalidade
+                            prematura por doenças crônicas não transmissíveis
+                            por meio da prevenção e do tratamento.
+                        </p>
+
+                    </div>
+
+                    <div class="ods-card">
+
+                        <div class="ods-badge ods-10">
+
+                            <span class="ods-number">10</span>
+
+                            <span class="ods-label">
+                                REDUÇÃO DAS<br />DESIGUALDADES
+                            </span>
+
+                        </div>
+
+                        <p class="ods-description">
+                            <strong>ODS 10.</strong>
+                            Apoia a meta 10.2, de promover a inclusão de todos,
+                            com atenção a idosos e pessoas com baixa
+                            familiaridade digital.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <p class="section-footnote">
+                    Fonte das metas: Nações Unidas Brasil,
+                    Objetivos de Desenvolvimento Sustentável
+                    (
+                    <a
+                        href="https://brasil.un.org/pt-br/sdgs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        brasil.un.org/pt-br/sdgs
+                    </a>
+                    ).
+                </p>
+
+            </div>
+        </section>
+
     </main>
+
+    <!-- RODAPÉ -->
     <footer>
-        <p>ZELO · Protótipo acadêmico · Global Solution 2026/2 · CitizenTech · FIAP</p>
-        <p>Os dados de remédios desta simulação são fictícios e não substituem orientação médica.</p>
+
+        <p>
+            ZELO · Protótipo acadêmico · Global Solution 2026/2
+            · CitizenTech · FIAP
+        </p>
+
+        <p>
+            Os dados de remédios desta simulação são fictícios
+            e não substituem orientação médica.
+        </p>
+
     </footer>
-  </body>
+
+</body>
 </html>

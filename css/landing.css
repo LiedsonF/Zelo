@@ -507,7 +507,6 @@ Section 2 */
     }
  }
 
-/*Prévia do Cadastro*/
 
 .cadastro-preview-section {
     background-color: var(--cor-fundo);
@@ -547,14 +546,9 @@ Section 2 */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-direction: column; /* coloca o botão embaixo da imagem */
     align-items: center;
     width: 100%;
-}
-
-.cadastro-svg-wrapper svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
 }
 
 .cadastro-cta-wrapper {
@@ -693,9 +687,172 @@ footer {
     gap: 1rem;
     background-color: var(--cor-texto);
     padding: 2rem 1rem;
-    
+
     p {
         color: var(--cor-fundo);
         font-size: var(--tamanho-etiqueta);
     }
+}
+
+/*impacto do zelo*/
+
+.impacto-section {
+    background-color: var(--cor-fundo);
+    padding: var(--pd-3) 2.5rem 4.5rem 2.5rem;
+    border-top: var(--borda-section);
+}
+
+.impacto-header {
+    margin-bottom: 3.5rem;
+}
+
+.impacto-eyebrow {
+    display: block;
+    font-family: 'Inter', var(--font-lato);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--cor-primaria);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.impacto-title {
+     font-family: 'Inter', var(--font-lato);
+    font-size: 2.35rem;
+    font-weight: 900;
+    color: var(--cor-texto);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 0.65rem;
+}
+
+.impacto-subtitle {
+    font-size: var(--tamanho-texto);
+    color: var(--cor-texto-secundario);
+}
+
+.antes-depois-title {
+    font-family: 'Inter', var(--font-lato);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--cor-texto);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+
+.antes-depois-caption {
+    font-size: var(--tamanho-secao);
+    font-weight: var(--lato-bold);
+    color: var(--cor-texto);
+    margin-bottom: 0.85rem;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--cor-borda-input);
+    border-radius: 10px;
+    background-color: var(--cor-superficie);
+}
+
+.comparacao-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--tamanho-texto);
+    line-height: 1.5;
+}
+
+.comparacao-table thead th {
+    background-color: var(--cor-primaria-clara);
+    color: var(--cor-texto);
+    font-weight: var(--lato-bold);
+    padding: 0.95rem 1.15rem;
+    border-bottom: 1px solid var(--cor-borda-input);
+    border-right: 1px solid var(--cor-borda-input);
+}
+
+.comparacao-table tbody td:first-child {
+    background-color: var(--cor-primaria-clara);
+    font-weight: var(--lato-bold);
+    color: var(--cor-texto);
+    width: 17%;
+    min-width: 150px;
+}
+
+.comparacao-table tbody td {
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+    padding: 0.95rem 1.15rem;
+    vertical-align: top;
+    border-bottom: 1px solid var(--cor-borda-input);
+    border-right: 1px solid var(--cor-borda-input);
+}
+
+/*Como vamos medir*/
+
+.medir-section {
+    background-color: var(--cor-superficie);
+    padding: var(--pd-3) 2.5rem;
+    border-top: var(--borda-section);
+}
+
+.medir-title {
+    font-family: 'Inter', var(--font-lato);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--cor-texto);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+}
+
+.medir-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-1);
+}
+
+.medir-card {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda-input);
+    border-radius: 16px;
+    padding: 1.35rem;
+}
+
+.medir-card h3 {
+    font-family: 'Inter', var(--font-lato);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--cor-texto);
+    margin-bottom: 0.65rem;
+}
+
+.medir-card p {
+    font-size: var(--tamanho-texto);
+    line-height: 1.5;
+    color: var(--cor-texto);
+}
+
+.section-footnote {
+    font-size: var(--tamanho-etiqueta);
+    color: var(--cor-texto-secundario);
+    margin-top: 0.75rem;
+}
+
+.section-footnote a {
+    color: var(--cor-primaria);
+    text-decoration: underline;
+}
+
+.section-footnote a:hover {
+    color: var(--cor-primaria-escura);
+}
+
+/* Contribuição para os ODS*/
+
+.ods-contribuicao-section {
+    background-color: var(--cor-fundo);
+    padding: var(--pd-3) 2.5rem 4.5rem 2.5rem;
+    border-top: var(--borda-section);
 }
