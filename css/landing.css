@@ -246,6 +246,7 @@ Section 2 */
     margin: 0 auto;
     padding: 0 30px;
     margin-top: var(--gap-3);
+    border-bottom: var(--borda-section);
     .box-1-section-2 {
         display: flex;
         flex-direction: column;
@@ -279,6 +280,7 @@ Section 2 */
         }
     }
     .box-3-section-2 {
+        margin-bottom: var(--pd-2);
         p {
             font-size: var(--tamanho-texto);
         }
@@ -438,3 +440,65 @@ Section 2 */
     font-weight: var(--lato-bold);
 }
 
+/* ======================================================== 
+ Section 5*/
+
+ .container-site-5 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+    margin: 0 auto;
+    padding: 0 30px;
+    gap: var(--gap-3);
+    border-bottom: var(--borda-section);
+    .box-1-section-5 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-1);
+        h6 {
+            color: var(--cor-primaria);
+            font-size: var(--tamanho-texto);
+        }
+        h2 {
+            font-size: var(--tamanho-titulo);
+        }
+        p {
+            font-size: var(--tamanho-texto);
+            color: var(--cor-texto-suave);
+        }
+    }
+    .box-2-section-5 {
+        display: flex;
+        justify-content: center;
+        img {
+            width: 80%;
+        }
+    }
+    .box-3-section-5 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-1);
+        background-color: var(--cor-superficie);
+        padding: var(--pd-2);
+        border: var(--borda-section);
+        border-radius: 0.75rem;
+        margin-bottom: var(--pd-1);
+        h3 {
+            font-size: var(--tamanho-titulo-tela);
+        }
+        ol {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          justify-content: center;
+          padding-left: 1.25rem;
+          li {
+            font-size: var(--tamanho-etiqueta);
+          }
+        }
+        p {
+            font-size: var(--tamanho-etiqueta);
+            color: var(--cor-texto-suave);
+        }
+    }
+ }

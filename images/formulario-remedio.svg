@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="489" height="630" viewBox="0 0 489 630" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif">
+  <!-- Fundo e cartão -->
+  <rect width="489" height="630" fill="#F2F4F5"/>
+  <rect x="8.5" y="6.5" width="475" height="616" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+
+  <!-- Nome do remédio -->
+  <text x="26" y="39" font-size="14" font-weight="700" fill="#111827">Nome do remédio *</text>
+  <rect x="26.5" y="50.5" width="439" height="43" rx="9" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="40" y="77" font-size="14" fill="#6B7280">Ex.: Losartana</text>
+
+  <!-- Dose -->
+  <text x="26" y="125" font-size="14" font-weight="700" fill="#111827">Dose *</text>
+  <rect x="26.5" y="136.5" width="439" height="43" rx="9" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="40" y="163" font-size="14" fill="#6B7280">Ex.: 50 mg, 1 comprimido</text>
+
+  <!-- Horários -->
+  <text x="26" y="212" font-size="14" font-weight="700" fill="#111827">Horários *</text>
+  <rect x="26.5" y="224.5" width="330" height="44" rx="9" fill="#FFFFFF" stroke="#111827"/>
+  <text x="40" y="252" font-size="15" fill="#111827">--:-- --</text>
+  <!-- ícone de relógio -->
+  <circle cx="335" cy="246.5" r="6" fill="none" stroke="#111827" stroke-width="1.6"/>
+  <path d="M335 243 V246.5 L337.5 248" fill="none" stroke="#111827" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- Botão + Horário -->
+  <rect x="366.5" y="223.5" width="99" height="46" rx="9" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="416" y="251" font-size="14" font-weight="700" fill="#1D4ED8" text-anchor="middle">+ Horário</text>
+
+  <!-- Chips de horários -->
+  <rect x="26" y="279" width="96" height="36" rx="18" fill="#EFF4FF"/>
+  <text x="40" y="302" font-size="14" font-weight="700" fill="#1E3A8A">08:00</text>
+  <text x="100" y="302" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">×</text>
+
+  <rect x="128" y="279" width="95" height="36" rx="18" fill="#EFF4FF"/>
+  <text x="142" y="302" font-size="14" font-weight="700" fill="#1E3A8A">20:00</text>
+  <text x="202" y="302" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">×</text>
+
+  <!-- Frequência -->
+  <text x="26" y="348" font-size="14" font-weight="700" fill="#111827">Frequência *</text>
+  <rect x="26.5" y="359.5" width="439" height="40" rx="7" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="43" y="384" font-size="14" fill="#111827">Todos os dias</text>
+  <path d="M455 377 L459 381 L463 377" fill="none" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(-4 0)"/>
+
+  <!-- Observações -->
+  <text x="26" y="431" font-size="14" font-weight="700" fill="#111827">Observações <tspan font-weight="400" fill="#374151">(opcional)</tspan></text>
+  <rect x="26.5" y="442.5" width="439" height="92" rx="9" fill="#FFFFFF" stroke="#9CA3AF"/>
+  <text x="40" y="468" font-size="14" fill="#6B7280">Ex.: tomar depois do café da manhã</text>
+  <!-- alça de redimensionar -->
+  <path d="M455 531 L462 524 M459 531 L462 528" stroke="#9CA3AF" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- Botões -->
+  <rect x="26.5" y="558.5" width="98" height="46" rx="9" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="75.5" y="586" font-size="14" font-weight="700" fill="#1D4ED8" text-anchor="middle">Cancelar</text>
+
+  <rect x="134" y="558" width="139" height="47" rx="9" fill="#1D4ED8"/>
+  <text x="203.5" y="586" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Salvar remédio</text>
+</svg>

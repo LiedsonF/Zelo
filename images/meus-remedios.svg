@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="324" height="754" viewBox="0 0 324 754" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif">
+<rect width="324" height="754" fill="#F2F4F5"/>
+<rect x="4.5" y="3.5" width="315" height="742" rx="8" fill="#FFF" stroke="#E5E7EB"/>
+<text x="12" y="25" font-size="7" fill="#4B5563">Hoje · dia simulado</text>
+<text x="12" y="42" font-size="15.5" font-weight="800" fill="#111827">Meus remédios</text>
+<text x="252" y="20" font-size="7" font-weight="700" fill="#111827">Hora simulada</text>
+<rect x="252.5" y="25.5" width="63" height="24" rx="6" fill="#FFF" stroke="#9CA3AF"/>
+<text x="261" y="40.5" font-size="7" fill="#111827">09:00 AM</text>
+<circle cx="303.5" cy="38" r="2.6" fill="none" stroke="#111827" stroke-width=".9"/><path d="M303.5 36.4V38L304.6 38.7" fill="none" stroke="#111827" stroke-width=".9" stroke-linecap="round"/>
+<text x="12" y="64" font-size="6.5" font-weight="700" fill="#111827">4 de 12 doses tomadas</text>
+<text x="315" y="64" font-size="6.5" font-weight="700" fill="#111827" text-anchor="end">33%</text>
+<rect x="12" y="71" width="304" height="7" rx="3.5" fill="#E4E7EB"/>
+<rect x="12" y="71" width="102" height="7" rx="3.5" fill="#1D4ED8"/>
+<rect x="12.5" y="93.5" width="36" height="19" rx="9.5" fill="#1D4ED8" stroke="#1D4ED8"/>
+<text x="30.5" y="105.5" font-size="6.5" font-weight="700" fill="#FFF" text-anchor="middle">Todas</text>
+<rect x="52.5" y="93.5" width="50" height="19" rx="9.5" fill="#FFF" stroke="#E5E7EB"/>
+<text x="77.5" y="105.5" font-size="6.5" font-weight="700" fill="#111827" text-anchor="middle">Atrasadas</text>
+<rect x="106.5" y="93.5" width="47" height="19" rx="9.5" fill="#FFF" stroke="#E5E7EB"/>
+<text x="130.0" y="105.5" font-size="6.5" font-weight="700" fill="#111827" text-anchor="middle">Próximas</text>
+<rect x="157.5" y="93.5" width="46" height="19" rx="9.5" fill="#FFF" stroke="#E5E7EB"/>
+<text x="180.5" y="105.5" font-size="6.5" font-weight="700" fill="#111827" text-anchor="middle">Tomadas</text>
+<rect x="210.5" y="88.5" width="88" height="24" rx="6" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="254.5" y="103.5" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Reiniciar simulação</text>
+<text x="12" y="127" font-size="6" fill="#4B5563">Losartana marcada como tomada às 09:00.</text>
+<text x="12" y="146" font-size="5.8" font-weight="700" letter-spacing=".6" fill="#B42318">ATRASADAS (0)</text>
+<text x="12" y="158" font-size="6.5" font-style="italic" fill="#4B5563">Nenhuma dose nesta categoria.</text>
+<text x="12" y="178" font-size="5.8" font-weight="700" letter-spacing=".6" fill="#4B5563">PRÓXIMAS (8)</text>
+<rect x="12.5" y="184.5" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="199.0" font-size="7" font-weight="700" fill="#111827">Ácido fólico</text>
+<text x="20" y="212.0" font-size="6" fill="#4B5563">5 mg · 1 comprimido · 09:30</text>
+<rect x="265.5" y="192.5" width="42" height="21" rx="5" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="286.5" y="205.5" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Tomei</text>
+<rect x="12.5" y="226.8" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="241.3" font-size="7" font-weight="700" fill="#111827">Metformina</text>
+<text x="20" y="254.3" font-size="6" fill="#4B5563">500 mg · 1 comprimido · 12:00</text>
+<rect x="265.5" y="234.8" width="42" height="21" rx="5" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="286.5" y="247.8" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Tomei</text>
+<rect x="12.5" y="269.1" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="283.6" font-size="7" font-weight="700" fill="#111827">Vitamina D</text>
+<text x="20" y="296.6" font-size="6" fill="#4B5563">1 cápsula · 14:00</text>
+<rect x="265.5" y="277.1" width="42" height="21" rx="5" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="286.5" y="290.1" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Tomei</text>
+<rect x="12.5" y="311.4" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="325.9" font-size="7" font-weight="700" fill="#111827">Anlodipino</text>
+<text x="20" y="338.9" font-size="6" fill="#4B5563">5 mg · 1 comprimido · 18:00</text>
+<rect x="265.5" y="319.4" width="42" height="21" rx="5" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="286.5" y="332.4" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Tomei</text>
+<rect x="12.5" y="353.7" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="368.2" font-size="7" font-weight="700" fill="#111827">Losartana</text>
+<text x="20" y="381.2" font-size="6" fill="#4B5563">50 mg · 1 comprimido · 20:00</text>
+<rect x="265.5" y="361.7" width="42" height="21" rx="5" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="286.5" y="374.7" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Tomei</text>
+<rect x="12.5" y="396.0" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="410.5" font-size="7" font-weight="700" fill="#111827">Metformina</text>
+<text x="20" y="423.5" font-size="6" fill="#4B5563">500 mg · 1 comprimido · 20:00</text>
+<rect x="265.5" y="404.0" width="42" height="21" rx="5" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="286.5" y="417.0" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Tomei</text>
+<rect x="12.5" y="438.29999999999995" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="452.79999999999995" font-size="7" font-weight="700" fill="#111827">Ômega 3</text>
+<text x="20" y="465.79999999999995" font-size="6" fill="#4B5563">1 cápsula · 20:30</text>
+<rect x="265.5" y="446.29999999999995" width="42" height="21" rx="5" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="286.5" y="459.29999999999995" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Tomei</text>
+<rect x="12.5" y="480.59999999999997" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="495.09999999999997" font-size="7" font-weight="700" fill="#111827">Cálcio</text>
+<text x="20" y="508.09999999999997" font-size="6" fill="#4B5563">1 comprimido · 21:00</text>
+<rect x="265.5" y="488.59999999999997" width="42" height="21" rx="5" fill="#FFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="286.5" y="501.59999999999997" font-size="6.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">Tomei</text>
+<text x="12" y="534" font-size="5.8" font-weight="700" letter-spacing=".6" fill="#23865C">TOMADAS (4)</text>
+<rect x="12.5" y="540.5" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="555.0" font-size="7" font-weight="700" fill="#6B7280" text-decoration="line-through">Levotiroxina</text>
+<text x="20" y="568.0" font-size="6" fill="#4B5563">50 mcg · 1 comprimido · tomado às 06:35</text>
+<rect x="261.5" y="548.5" width="46" height="21" rx="5" fill="#FFF" stroke="#D1D5DB"/>
+<text x="284.5" y="561.5" font-size="6.5" font-weight="700" fill="#111827" text-anchor="middle">Desfazer</text>
+<rect x="12.5" y="582.8" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="597.3" font-size="7" font-weight="700" fill="#6B7280" text-decoration="line-through">Omeprazol</text>
+<text x="20" y="610.3" font-size="6" fill="#4B5563">20 mg · 1 cápsula · tomado às 07:05</text>
+<rect x="261.5" y="590.8" width="46" height="21" rx="5" fill="#FFF" stroke="#D1D5DB"/>
+<text x="284.5" y="603.8" font-size="6.5" font-weight="700" fill="#111827" text-anchor="middle">Desfazer</text>
+<rect x="12.5" y="625.1" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="639.6" font-size="7" font-weight="700" fill="#6B7280" text-decoration="line-through">Sinvastatina</text>
+<text x="20" y="652.6" font-size="6" fill="#4B5563">20 mg · 1 comprimido · tomado às 07:10</text>
+<rect x="261.5" y="633.1" width="46" height="21" rx="5" fill="#FFF" stroke="#D1D5DB"/>
+<text x="284.5" y="646.1" font-size="6.5" font-weight="700" fill="#111827" text-anchor="middle">Desfazer</text>
+<rect x="12.5" y="667.4" width="303" height="37" rx="6" fill="#FFF" stroke="#E5E7EB"/>
+<text x="20" y="681.9" font-size="7" font-weight="700" fill="#6B7280" text-decoration="line-through">Losartana</text>
+<text x="20" y="694.9" font-size="6" fill="#4B5563">50 mg · 1 comprimido · tomado às 09:00</text>
+<rect x="261.5" y="675.4" width="46" height="21" rx="5" fill="#FFF" stroke="#D1D5DB"/>
+<text x="284.5" y="688.4" font-size="6.5" font-weight="700" fill="#111827" text-anchor="middle">Desfazer</text>
+<rect x="12" y="712" width="91" height="24" rx="6" fill="#1D4ED8"/>
+<text x="57.5" y="726.5" font-size="6.5" font-weight="700" fill="#FFF" text-anchor="middle">+ Adicionar remédio</text>
+</svg>
