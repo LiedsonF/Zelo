@@ -221,6 +221,7 @@ main {
     justify-content: space-between;
     align-items: center;
     gap: var(--gap-1);
+    margin-bottom: 12px;
 }
 
 .info-medicamento {
