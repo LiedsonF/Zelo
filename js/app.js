@@ -1,3 +1,43 @@
+// VERIFICA SE O HORÁRIO DA DOSE JÁ PASSOU - retorna true se estiver atrasada
+function estaAtrasada(horario) {
+    const dataAtual = new Date();
+    const horaAtual = String(dataAtual.getHours()).padStart(2, "0");
+    const minAtual = String(dataAtual.getMinutes()).padStart(2, "0");
+    const horaMinFormat = `${horaAtual}:${minAtual}`;
+    return horario < horaMinFormat;
+}
+
+// FUNCAO PARA PEGAR A DATA ATUAL - uso posteriormente
+function dataDeHoje() {
+    const data = new Date();
+    const ano = String(data.getFullYear());
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+    const dia = String(data.getDate()).padStart(2, '0');
+    return `${ano}-${mes}-${dia}`;
+}
+
+// FUNÇAO PARA LER NO LOCAL STORAGE OS REMÉDIOS TOMADOS - SEPARADAMENTE DOS OUTROS
+function lerTomadas() {
+    try {
+        const dados = JSON.parse(localStorage.getItem("tomadas"));
+        return Array.isArray(dados) ? dados : [];
+    } catch (erro) {
+        return [];
+    }
+}
+
+// FUNÇAO PARA LER NO LOCAL STORAGE A LISTA DE REMÉDIOS COMPLETA
+function lerRemedios() {
+    try {
+        const dados = JSON.parse(localStorage.getItem("remedios"));
+        return Array.isArray(dados) ? dados : [];
+    } catch (erro) {
+        return [];
+    }
+}
+
+
+
 function iniciarApp() {
     // DATA ATUAL
     const dataAtual = new Date();
@@ -44,18 +84,13 @@ function iniciarApp() {
 
     // MOSTRAR REMÉDIOS CADASTRADOS
     const secaoProximas = document.querySelector(".container-proximas");
+    const secaoAtrasadas = document.querySelector('.container-atrasadas');
+    const secaoTomadas = document.querySelector('.container-tomadas');
 
     if (secaoProximas) {
         const diasSemana = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
         const hoje = diasSemana[new Date().getDay()];
-        let remediosSalvos = [];
-
-        try {
-            const dados = JSON.parse(localStorage.getItem("remedios"));
-            remediosSalvos = Array.isArray(dados) ? dados : [];
-        } catch (erro) {
-            remediosSalvos = [];
-        }
+        const remediosSalvos = lerRemedios();
 
         const dosesDeHoje = [];
 
@@ -66,24 +101,70 @@ function iniciarApp() {
             if (!tomaHoje) return;
 
             remedio.horarios.forEach(horario => {
-                dosesDeHoje.push({ nome: remedio.nome, dose: remedio.dose, horario });
+                dosesDeHoje.push({ nome: remedio.nome, dose: remedio.dose, horario, id: remedio.id });
             });
         });
 
         dosesDeHoje.sort((a, b) => String(a.horario).localeCompare(String(b.horario)));
 
         dosesDeHoje.forEach(item => {
+            const atrasada = estaAtrasada(item.horario);
+            const jaTomada = lerTomadas().some(registro =>
+                registro.id === String(item.id) &&
+                registro.horario === String(item.horario) &&
+                registro.data === dataDeHoje()
+            );
             const card = document.createElement("div");
-            card.className = "box box-proximas";
             card.innerHTML = `
                 <div class="info-medicamento">
                     <h4></h4>
                     <p></p>
                 </div>
-                <button class="btn-tomei" type="button">Tomei</button>`;
+                <button class="btn-tomei" type="button">Tomei</button>
+                <button class="btn-excluir individual" aria-label="Excluir remédio" type="button">×</button>`;
             card.querySelector("h4").textContent = item.nome;
             card.querySelector("p").textContent = `${item.dose} . ${item.horario}`;
-            secaoProximas.append(card);
+            card.dataset.id = item.id;
+            card.dataset.horario = item.horario;
+            const botaoExcluir = card.querySelector('.btn-excluir');
+            botaoExcluir.addEventListener('click', () => {
+                const confirmar = confirm(`Excluir esse cadastro de ${item.nome}?`);
+                if (confirmar) {
+                    const remedios = lerRemedios();
+                    const restantes = remedios.filter(remedio => String(remedio.id) !== String(item.id));
+                    localStorage.setItem("remedios", JSON.stringify(restantes));
+                    const tomadas = lerTomadas();
+                    const tomadasRestantes = tomadas.filter(registro => String(registro.id) !== String(item.id));
+                    localStorage.setItem("tomadas", JSON.stringify(tomadasRestantes));
+                    location.reload();
+                }
+            });
+            if (jaTomada) {
+                card.className = 'box box-tomadas';
+                const botaoCard = card.querySelector('.btn-tomei');
+                botaoCard.className = 'btn-desfazer';
+                botaoCard.textContent = 'Desfazer';
+                const tagA = document.createElement("a");
+                const tagImg = document.createElement("img");
+
+                tagImg.src = "images/check.svg";
+                tagImg.alt = "Check";
+
+                tagA.appendChild(tagImg);
+                card.prepend(tagA);
+                secaoTomadas.append(card);
+            }
+            else if (atrasada) {
+                card.className = 'box box-atrasada';
+                const divStatus = document.createElement('div');
+                divStatus.className = 'status-medicamento';
+                divStatus.innerHTML = `<span>!</span>`;
+                card.querySelector('.btn-tomei').before(divStatus);
+                secaoAtrasadas.append(card);
+            } else {
+                card.className = "box box-proximas";
+                secaoProximas.append(card);
+            }
         });
     }
 
@@ -156,7 +237,7 @@ function iniciarApp() {
             console.warn("Elemento #btn-add-horario ou #lista-horarios não encontrado.");
         }
 
-      // FREQUÊNCIA
+        // FREQUÊNCIA
         const checkboxTodos = document.querySelector(
             'input[name="dias"][value="todos"]'
         );
@@ -191,8 +272,6 @@ function iniciarApp() {
 
             const nomeEl = document.getElementById("nome-remedio");
             const doseEl = document.getElementById("dose-remedio");
-            const obsEl = document.getElementById("obs-remedio");
-
             const containerHorarios = listaHorarios || formulario;
             const horarios = [...containerHorarios.querySelectorAll(".horario input")]
                 .map(i => i.value.trim());
@@ -202,10 +281,10 @@ function iniciarApp() {
 
             const remedio = {
                 nome: nomeEl ? nomeEl.value.trim() : "",
+                id: Date.now(),
                 dose: doseEl ? doseEl.value.trim() : "",
                 horarios,
-                dias,
-                observacoes: obsEl ? obsEl.value.trim() : ""
+                dias
             };
 
             if (!remedio.nome || !remedio.dose) {
@@ -223,45 +302,30 @@ function iniciarApp() {
                 return;
             }
 
-            let remedios = [];
-            try {
-                const dados = JSON.parse(localStorage.getItem("remedios"));
-                remedios = Array.isArray(dados) ? dados : [];
-            } catch (erro) {
-                remedios = [];
-            }
+            const remedios = lerRemedios();
 
             remedios.push(remedio);
             localStorage.setItem("remedios", JSON.stringify(remedios));
 
-            window.location.href = "./index.html";
+            window.location.href = "./solucao.html";
         });
     }
 
-    // ------------------JS Arthur----------------------- //
-      const btnTomei = document.querySelectorAll(".btn-tomei");
+    // ------------------BOTOES TOMEI/DESFAZER----------------------- //
+    const btnTomei = document.querySelectorAll(".btn-tomei, .btn-desfazer");
     const containerTomadas = document.getElementById("container-tomadas");
 
     if (containerTomadas) {
         btnTomei.forEach(botao => {
-
-            const boxInicial = botao.closest(".box");
-            if (!boxInicial) return;
-
-            const originalContainer = botao.closest(
-                ".container, .container-proximas"
-            );
-
-            const classText = boxInicial.className;
-            const statusMed = boxInicial.querySelector(".status-medicamento");
-
             botao.addEventListener("click", () => {
 
                 const boxBotao = botao.closest(".box");
                 if (!boxBotao) return;
 
                 if (botao.classList.contains("btn-tomei")) {
-
+                    const tomadas = lerTomadas();
+                    tomadas.push({ id: boxBotao.dataset.id, horario: boxBotao.dataset.horario, data: dataDeHoje() });
+                    localStorage.setItem("tomadas", JSON.stringify(tomadas));
                     containerTomadas.appendChild(boxBotao);
                     boxBotao.className = "box box-tomadas";
 
@@ -283,47 +347,16 @@ function iniciarApp() {
                     botao.className = "btn-desfazer";
                     botao.textContent = "Desfazer";
 
-                    // EXCLUIR INDIVIDUALMENTE
-                    const botaoExcluir = document.createElement("button");
-
-                    botaoExcluir.className = "btn-excluir";
-                    botaoExcluir.type = "button";
-                    botaoExcluir.textContent = "Excluir";
-
-                    botaoExcluir.addEventListener("click", () => {
-
-                        const confirmar = confirm(
-                            "Deseja excluir este medicamento da lista de tomadas?"
-                        );
-
-                        if (confirmar) {
-                            boxBotao.remove();
-                            atualizarProgresso();
-                        }
-                    });
-
-                    boxBotao.appendChild(botaoExcluir);
-
                 } else if (botao.classList.contains("btn-desfazer")) {
+                    const tomadas = lerTomadas();
+                    const restantes = tomadas.filter(registro => !(
+                        registro.id === boxBotao.dataset.id &&
+                        registro.horario === boxBotao.dataset.horario &&
+                        registro.data === dataDeHoje()
+                    ));
+                    localStorage.setItem("tomadas", JSON.stringify(restantes));
+                    location.reload();
 
-                    if (originalContainer) {
-                        originalContainer.appendChild(boxBotao);
-                    }
-
-                    boxBotao.className = classText;
-
-                    const tagA = boxBotao.querySelector("a");
-                    if (tagA) tagA.remove();
-
-                    const btnExcluir = boxBotao.querySelector(".btn-excluir");
-                    if (btnExcluir) btnExcluir.remove();
-
-                    if (statusMed) {
-                        botao.before(statusMed);
-                    }
-
-                    botao.className = "btn-tomei";
-                    botao.textContent = "Tomei";
                 }
 
                 atualizarProgresso();
@@ -347,9 +380,21 @@ function iniciarApp() {
 
             if (confirmar) {
                 localStorage.removeItem("remedios");
+                localStorage.removeItem("tomadas");
                 location.reload();
             }
         });
+    }
+    const dataAoAbrir = dataDeHoje();
+    if (secaoProximas) {
+        setInterval(() => {
+            const cardsProximas = [...document.querySelectorAll('.box-proximas')];
+            const algumaAtrasou = cardsProximas.some(card => estaAtrasada(card.dataset.horario));
+            const virouDia = dataAoAbrir !== dataDeHoje();
+            if (algumaAtrasou || virouDia) {
+                location.reload();
+            }
+        }, 30000);
     }
 
     atualizarProgresso();
