@@ -676,7 +676,7 @@ main {
 .btn-excluir {
     background-color: var(--cor-perigo-clara);
     color: var(--cor-perigo);
-    border: 1.5px solid var(--cor-perigo);
+    border: 2px solid var(--cor-perigo);
     border-radius: 13px;
     padding: 12px 16px;
     font-family: var(--font-lato);
@@ -686,6 +686,7 @@ main {
     transition: 0.3s ease;
     white-space: nowrap;
 }
+
 
 .btn-excluir:hover {
     background-color: var(--cor-perigo);
@@ -715,6 +716,16 @@ main {
     }
 
     .btn-tomei {
+        padding: 10px 12px;
+        font-size: 0.875rem;
+    }
+
+    .btn-desfazer {
+        padding: 10px 12px;
+        font-size: 0.875rem;
+    }
+
+    .btn-excluir {
         padding: 10px 12px;
         font-size: 0.875rem;
     }

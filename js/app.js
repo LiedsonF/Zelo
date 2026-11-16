@@ -1,7 +1,4 @@
-
-
-
-// GUARDAR HORARIO ATUAL PARA COMPARAR COM O DAS DOSES REGISTRADAS -  return => True: Atrasado.
+// VERIFICA SE O HORÁRIO DA DOSE JÁ PASSOU - retorna true se estiver atrasada
 function estaAtrasada(horario) {
     const dataAtual = new Date();
     const horaAtual = String(dataAtual.getHours()).padStart(2, "0");
@@ -28,6 +25,17 @@ function lerTomadas() {
         return [];
     }
 }
+
+// FUNÇAO PARA LER NO LOCAL STORAGE A LISTA DE REMÉDIOS COMPLETA
+function lerRemedios() {
+    try {
+        const dados = JSON.parse(localStorage.getItem("remedios"));
+        return Array.isArray(dados) ? dados : [];
+    } catch (erro) {
+        return [];
+    }
+}
+
 
 
 function iniciarApp() {
@@ -82,14 +90,7 @@ function iniciarApp() {
     if (secaoProximas) {
         const diasSemana = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
         const hoje = diasSemana[new Date().getDay()];
-        let remediosSalvos = [];
-
-        try {
-            const dados = JSON.parse(localStorage.getItem("remedios"));
-            remediosSalvos = Array.isArray(dados) ? dados : [];
-        } catch (erro) {
-            remediosSalvos = [];
-        }
+        const remediosSalvos = lerRemedios();
 
         const dosesDeHoje = [];
 
@@ -119,11 +120,25 @@ function iniciarApp() {
                     <h4></h4>
                     <p></p>
                 </div>
-                <button class="btn-tomei" type="button">Tomei</button>`;
+                <button class="btn-tomei" type="button">Tomei</button>
+                <button class="btn-excluir individual" aria-label="Excluir remédio" type="button">×</button>`;
             card.querySelector("h4").textContent = item.nome;
             card.querySelector("p").textContent = `${item.dose} . ${item.horario}`;
             card.dataset.id = item.id;
             card.dataset.horario = item.horario;
+            const botaoExcluir = card.querySelector('.btn-excluir');
+            botaoExcluir.addEventListener('click', () => {
+                const confirmar = confirm(`Excluir esse cadastro de ${item.nome}?`);
+                if (confirmar) {
+                    const remedios = lerRemedios();
+                    const restantes = remedios.filter(remedio => String(remedio.id) !== String(item.id));
+                    localStorage.setItem("remedios", JSON.stringify(restantes));
+                    const tomadas = lerTomadas();
+                    const tomadasRestantes = tomadas.filter(registro => String(registro.id) !== String(item.id));
+                    localStorage.setItem("tomadas", JSON.stringify(tomadasRestantes));
+                    location.reload();
+                }
+            });
             if (jaTomada) {
                 card.className = 'box box-tomadas';
                 const botaoCard = card.querySelector('.btn-tomei');
@@ -131,10 +146,10 @@ function iniciarApp() {
                 botaoCard.textContent = 'Desfazer';
                 const tagA = document.createElement("a");
                 const tagImg = document.createElement("img");
-                
+
                 tagImg.src = "images/check.svg";
                 tagImg.alt = "Check";
-                
+
                 tagA.appendChild(tagImg);
                 card.prepend(tagA);
                 secaoTomadas.append(card);
@@ -257,8 +272,6 @@ function iniciarApp() {
 
             const nomeEl = document.getElementById("nome-remedio");
             const doseEl = document.getElementById("dose-remedio");
-            const obsEl = document.getElementById("obs-remedio");
-
             const containerHorarios = listaHorarios || formulario;
             const horarios = [...containerHorarios.querySelectorAll(".horario input")]
                 .map(i => i.value.trim());
@@ -271,8 +284,7 @@ function iniciarApp() {
                 id: Date.now(),
                 dose: doseEl ? doseEl.value.trim() : "",
                 horarios,
-                dias,
-                observacoes: obsEl ? obsEl.value.trim() : ""
+                dias
             };
 
             if (!remedio.nome || !remedio.dose) {
@@ -290,13 +302,7 @@ function iniciarApp() {
                 return;
             }
 
-            let remedios = [];
-            try {
-                const dados = JSON.parse(localStorage.getItem("remedios"));
-                remedios = Array.isArray(dados) ? dados : [];
-            } catch (erro) {
-                remedios = [];
-            }
+            const remedios = lerRemedios();
 
             remedios.push(remedio);
             localStorage.setItem("remedios", JSON.stringify(remedios));
@@ -311,9 +317,6 @@ function iniciarApp() {
 
     if (containerTomadas) {
         btnTomei.forEach(botao => {
-
-            
-
             botao.addEventListener("click", () => {
 
                 const boxBotao = botao.closest(".box");
@@ -393,7 +396,7 @@ function iniciarApp() {
             }
         }, 30000);
     }
-  
+
     atualizarProgresso();
 }
 
