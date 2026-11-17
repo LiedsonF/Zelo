@@ -830,3 +830,28 @@ main {
         grid-template-columns: 1fr 1.5fr;
     }
 }
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 115px;
+    }
+
+    .container-header .container-site {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .site-nav {
+        width: 100%;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .site-nav a {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
