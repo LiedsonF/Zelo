@@ -1,73 +1,122 @@
-# 💊 Zelo — Cuidar também é lembrar.
+# ZELO — Tecnologia que cuida
 
 <p align="center">
-  Um jeito simples e seguro de acompanhar seus medicamentos.
+  <strong>Organização que transforma.</strong>
 </p>
 
----
+O **ZELO** é uma plataforma web desenvolvida como parte da Global Solution 2026/2 da FIAP, com o tema **CitizenTech — Tecnologia com o cidadão no centro da inovação**.
 
-## 🌿 Sobre o projeto
+O projeto tem como objetivo facilitar o gerenciamento de medicamentos, ajudando pessoas que precisam manter tratamentos contínuos a organizar seus horários e acompanhar as doses ao longo do dia.
 
-O **Zelo** é uma aplicação web desenvolvida para ajudar pessoas a organizarem seus medicamentos e acompanharem os horários de cada dose ao longo do dia.
+## 💡 O problema
 
-A proposta é simples: facilitar a rotina de quem precisa tomar medicamentos regularmente, reduzindo esquecimentos e ajudando a evitar que uma dose seja tomada duas vezes por engano.
+Muitas pessoas, especialmente idosos e pacientes com doenças crônicas, precisam utilizar diferentes medicamentos em horários específicos.
 
-Mais do que um organizador, o Zelo busca tornar o cuidado com a saúde mais acessível, intuitivo e tranquilo.
+Esquecer uma dose ou não lembrar se determinado medicamento já foi tomado pode comprometer a organização e a continuidade do tratamento.
 
-## ✨ Funcionalidades
+Segundo a Organização Mundial da Saúde (OMS), a adesão aos tratamentos de longo prazo em países desenvolvidos é de aproximadamente 50%.
 
-- 💊 **Cadastro de medicamentos:** adicione o nome, a dosagem e os horários de cada medicamento.
-- ⏰ **Agenda diária:** visualize todas as doses programadas para o dia.
-- ✅ **Registro de doses:** marque cada medicamento como tomado com apenas um clique.
-- 🔴 **Alertas visuais:** identifique facilmente doses que passaram do horário.
-- 💾 **Armazenamento local:** seus medicamentos e registros permanecem salvos no navegador por meio do LocalStorage.
+**Fonte:** [OMS — Adherence to Long-Term Therapies](https://iris.who.int/handle/10665/42682)
 
-## 🎯 Nosso objetivo
+## 🎯 Nossa solução
 
-Ajudar pessoas que precisam de uma rotina organizada de medicamentos, especialmente idosos, pacientes em tratamentos contínuos e pessoas que cuidam de familiares.
+O ZELO oferece uma experiência simples e visual para ajudar o usuário a organizar sua rotina de medicamentos.
 
-Queremos transformar uma tarefa cotidiana em algo mais simples, visual e acessível.
+Com a plataforma, é possível:
 
-## 🛠️ Tecnologias utilizadas
+- Cadastrar medicamentos, dosagens e horários.
+- Definir a frequência de utilização.
+- Visualizar as doses organizadas por situação.
+- Identificar medicamentos com horário atrasado.
+- Marcar doses como tomadas.
+- Acompanhar o progresso diário.
+- Gerenciar doses individualmente.
 
-| Tecnologia | Utilização |
-|---|---|
-| HTML5 | Estrutura da aplicação |
-| CSS3 | Estilização e responsividade |
-| JavaScript | Funcionalidades e interações |
-| LocalStorage | Persistência dos dados no navegador |
+A proposta é oferecer mais organização, autonomia e praticidade para usuários, familiares e cuidadores.
 
-## 🚀 Executando o projeto
+## 👥 Público beneficiado
 
-1. Clone este repositório:
+O projeto considera como persona principal Dona Maria, de 68 anos, que precisa administrar diferentes medicamentos diariamente.
 
-   ```bash
-   git clone https://github.com/LiedsonF/Zelo.git
-   ```
+A solução também pode beneficiar familiares e cuidadores que desejam acompanhar a rotina de tratamento de pessoas próximas.
 
-2. Entre na pasta do projeto:
+## 🌍 Conexão com os ODS
 
-   ```bash
-   cd zelo
-   ```
+O ZELO está relacionado aos seguintes Objetivos de Desenvolvimento Sustentável da ONU:
 
-3. Abra o arquivo `index.html` no navegador ou utilize a extensão Live Server do VS Code.
+- **ODS 3 — Saúde e Bem-Estar:** contribui para uma rotina de tratamento mais organizada e para o acompanhamento dos medicamentos.
+- **ODS 10 — Redução das Desigualdades:** busca oferecer uma experiência simples e acessível, considerando pessoas que podem enfrentar dificuldades com ferramentas digitais.
 
-## 🔮 Melhorias futuras
+## ⚙️ Tecnologias utilizadas
 
-- 🔔 Notificações sonoras nos horários dos medicamentos.
-- 📅 Histórico semanal de doses.
-- ♿ Recursos de acessibilidade, incluindo fontes maiores e melhor contraste.
-- 📱 Experiência otimizada para dispositivos móveis.
+- HTML5 — estrutura e organização das páginas.
+- CSS3 — estilização, layout e responsividade.
+- JavaScript — funcionalidades interativas e manipulação dos elementos da página.
 
-## ⚠️ Aviso importante
+## 🚀 Como executar o projeto
 
-O Zelo é uma ferramenta de organização e acompanhamento. Não substitui orientações médicas, prescrições ou acompanhamento profissional. Os horários e as doses devem seguir sempre as recomendações do profissional de saúde.
+O ZELO é um protótipo web que pode ser executado diretamente no navegador, sem necessidade de instalação de dependências.
+
+1. Faça o download ou clone este repositório.
+2. Extraia os arquivos, caso tenha baixado o ZIP.
+3. Abra a pasta do projeto.
+4. Execute o arquivo `index.html` em seu navegador.
+5. Navegue pelas páginas e teste as funcionalidades disponíveis.
+
+**Não é necessário instalar programas adicionais para visualizar o protótipo.**
+
+## 📁 Estrutura do projeto
+
+```text
+ZELO/
+│
+├── index.html
+├── solucao.html
+├── adicionar.html
+│
+├── css/
+│   ├── style.css
+│   └── landing.css
+│
+├── js/
+│   └── app.js
+│
+├── images/
+│
+└── README.md
+```
+
+## 🎥 Vídeo Pitch
+
+O vídeo apresenta o problema identificado, a proposta do ZELO, a demonstração do protótipo e o impacto esperado da solução.
+
+**Link do vídeo:** [(https://youtu.be/wC0rRNqfPwY?si=tYGX6-uOzwScug4v)]
+
+## 👨‍💻 Integrantes
+
+- Arthur de Laurentiz Mendes
+- Liedson Fernando Chapiewsky
+- Kauê Sequeira Cardoso de Oliveira
+- Victor Biazzin Rubinho
+- Lucas Pereira Martins
+
+## 🤖 Uso de Inteligência Artificial
+
+Ferramentas de inteligência artificial generativa foram utilizadas como apoio ao desenvolvimento do projeto, incluindo pesquisa, esclarecimento de dúvidas, revisão de textos e auxílio na identificação e correção de erros.
+
+Todo o conteúdo e código devem ser revisados e compreendidos pelos integrantes do grupo antes da entrega.
+
+## ⚠️ Aviso
+
+O ZELO é um protótipo acadêmico desenvolvido para fins educacionais e de demonstração.
+
+Os dados de medicamentos utilizados são fictícios. A plataforma não substitui orientações médicas, prescrições ou acompanhamento profissional.
 
 ---
 
 <p align="center">
-  **Zelo**
+  <strong>ZELO — Tecnologia que cuida, organização que transforma.</strong>
   <br>
-  Cuidar de si também é um ato de amor. 💚
+  Global Solution 2026/2 · FIAP
 </p>
+
