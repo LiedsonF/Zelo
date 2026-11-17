@@ -27,12 +27,30 @@ function lerTomadas() {
 }
 
 // FUNÇAO PARA LER NO LOCAL STORAGE A LISTA DE REMÉDIOS COMPLETA
+const REMEDIOS_INICIAIS = [
+    { id: 1001, nome: "Losartana Potássica", dose: "50mg (1 comprimido)", horarios: ["08:00", "20:00"], dias: ["todos"] },
+    { id: 1002, nome: "Metformina", dose: "850mg (1 comprimido)", horarios: ["08:30", "13:00"], dias: ["todos"] },
+    { id: 1003, nome: "Omeprazol", dose: "20mg (1 cápsula)", horarios: ["07:00"], dias: ["todos"] },
+    { id: 1004, nome: "AAS Infantil", dose: "100mg (1 comprimido)", horarios: ["12:30"], dias: ["todos"] },
+    { id: 1005, nome: "Sinvastatina", dose: "20mg (1 comprimido)", horarios: ["21:00"], dias: ["todos"] },
+    { id: 1006, nome: "Vitamina D3", dose: "2000 UI (1 cápsula)", horarios: ["09:00"], dias: ["todos"] },
+    { id: 1007, nome: "Atenolol", dose: "25mg (1 comprimido)", horarios: ["10:00"], dias: ["todos"] },
+    { id: 1008, nome: "Hidroclorotiazida", dose: "25mg (1 comprimido)", horarios: ["08:00"], dias: ["todos"] },
+    { id: 1009, nome: "Cálcio + Vitamina K2", dose: "600mg (1 comprimido)", horarios: ["15:00"], dias: ["todos"] },
+    { id: 1010, nome: "Complexo B", dose: "1 comprimido", horarios: ["18:00"], dias: ["todos"] }
+];
+
 function lerRemedios() {
     try {
+        if (!localStorage.getItem("zelo_iniciado")) {
+            localStorage.setItem("zelo_iniciado", "true");
+            localStorage.setItem("remedios", JSON.stringify(REMEDIOS_INICIAIS));
+            return [...REMEDIOS_INICIAIS];
+        }
         const dados = JSON.parse(localStorage.getItem("remedios"));
         return Array.isArray(dados) ? dados : [];
     } catch (erro) {
-        return [];
+        return [...REMEDIOS_INICIAIS];
     }
 }
 
@@ -128,16 +146,27 @@ function iniciarApp() {
             card.dataset.horario = item.horario;
             const botaoExcluir = card.querySelector('.btn-excluir');
             botaoExcluir.addEventListener('click', () => {
-                const confirmar = confirm(`Excluir esse cadastro de ${item.nome}?`);
-                if (confirmar) {
-                    const remedios = lerRemedios();
-                    const restantes = remedios.filter(remedio => String(remedio.id) !== String(item.id));
-                    localStorage.setItem("remedios", JSON.stringify(restantes));
-                    const tomadas = lerTomadas();
-                    const tomadasRestantes = tomadas.filter(registro => String(registro.id) !== String(item.id));
-                    localStorage.setItem("tomadas", JSON.stringify(tomadasRestantes));
-                    location.reload();
+                if (!botaoExcluir.dataset.confirmando) {
+                    botaoExcluir.dataset.confirmando = "true";
+                    botaoExcluir.textContent = "Excluir?";
+                    botaoExcluir.setAttribute("aria-label", `Confirmar exclusão de ${item.nome}`);
+                    setTimeout(() => {
+                        if (botaoExcluir) {
+                            delete botaoExcluir.dataset.confirmando;
+                            botaoExcluir.textContent = "×";
+                            botaoExcluir.setAttribute("aria-label", "Excluir remédio");
+                        }
+                    }, 3000);
+                    return;
                 }
+
+                const remedios = lerRemedios();
+                const restantes = remedios.filter(remedio => String(remedio.id) !== String(item.id));
+                localStorage.setItem("remedios", JSON.stringify(restantes));
+                const tomadas = lerTomadas();
+                const tomadasRestantes = tomadas.filter(registro => String(registro.id) !== String(item.id));
+                localStorage.setItem("tomadas", JSON.stringify(tomadasRestantes));
+                location.reload();
             });
             if (jaTomada) {
                 card.className = 'box box-tomadas';
@@ -166,6 +195,20 @@ function iniciarApp() {
                 secaoProximas.append(card);
             }
         });
+
+        if (remediosSalvos.length === 0) {
+            const btnRestaurar = document.createElement("button");
+            btnRestaurar.type = "button";
+            btnRestaurar.className = "btn-tomei";
+            btnRestaurar.textContent = "Restaurar remédios de exemplo";
+            btnRestaurar.addEventListener("click", () => {
+                localStorage.removeItem("zelo_iniciado");
+                localStorage.removeItem("remedios");
+                localStorage.removeItem("tomadas");
+                location.reload();
+            });
+            secaoProximas.append(btnRestaurar);
+        }
     }
 
     // CADASTRO DE MEDICAMENTOS
@@ -267,8 +310,18 @@ function iniciarApp() {
         // SALVAR REMÉDIO
         const horarioValido = h => /^([01]\d|2[0-3]):[0-5]\d$/.test(h);
 
+        formulario.setAttribute("novalidate", true);
+
         formulario.addEventListener("submit", (evento) => {
             evento.preventDefault();
+
+            let aviso = document.getElementById("aviso-form");
+            if (!aviso) {
+                aviso = document.createElement("p");
+                aviso.id = "aviso-form";
+                aviso.setAttribute("role", "alert");
+                formulario.appendChild(aviso);
+            }
 
             const nomeEl = document.getElementById("nome-remedio");
             const doseEl = document.getElementById("dose-remedio");
@@ -288,26 +341,40 @@ function iniciarApp() {
             };
 
             if (!remedio.nome || !remedio.dose) {
-                alert("Preencha o nome e a dose do medicamento.");
+                aviso.className = "msg-erro";
+                aviso.textContent = "Preencha o nome e a dose do medicamento.";
                 return;
             }
 
             if (remedio.dias.length === 0) {
-                alert("Selecione pelo menos um dia.");
+                aviso.className = "msg-erro";
+                aviso.textContent = "Selecione pelo menos um dia.";
                 return;
             }
 
             if (remedio.horarios.length === 0 || !remedio.horarios.every(horarioValido)) {
-                alert("Informe horários válidos, no formato HH:MM.");
+                aviso.className = "msg-erro";
+                aviso.textContent = "Informe horários válidos, no formato HH:MM.";
                 return;
             }
 
-            const remedios = lerRemedios();
+           const remedios = lerRemedios();
 
             remedios.push(remedio);
             localStorage.setItem("remedios", JSON.stringify(remedios));
 
-            window.location.href = "./solucao.html";
+            const diasSemana = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+            const hoje = diasSemana[new Date().getDay()];
+            const tomaHoje = remedio.dias.includes("todos") || remedio.dias.includes(hoje);
+
+            aviso.className = "msg-sucesso";
+            aviso.textContent = tomaHoje
+                ? "Remédio cadastrado com sucesso!"
+                : "Remédio salvo! Como foi agendado para outro dia da semana, ele aparecerá na lista apenas no dia marcado.";
+
+            setTimeout(() => {
+                window.location.href = "./solucao.html";
+            }, tomaHoje ? 800 : 2500);
         });
     }
 
@@ -373,16 +440,32 @@ function iniciarApp() {
 
     if (btnExcluirHistorico) {
         btnExcluirHistorico.addEventListener("click", () => {
+            let barraConfirmacao = document.getElementById("confirmar-exclusao-tudo");
+            if (barraConfirmacao) return;
 
-            const confirmar = confirm(
-                "Isso excluirá todos os remédios cadastrados. Deseja continuar?"
-            );
+            barraConfirmacao = document.createElement("div");
+            barraConfirmacao.id = "confirmar-exclusao-tudo";
+            barraConfirmacao.className = "barra-confirmacao";
+            barraConfirmacao.setAttribute("role", "alert");
+            barraConfirmacao.innerHTML = `
+                <span>Excluir todos os remédios cadastrados?</span>
+                <div class="acoes-confirmacao">
+                    <button type="button" class="btn-excluir" id="btn-sim-excluir">Sim, excluir</button>
+                    <button type="button" class="btn-cancelar" id="btn-nao-excluir">Cancelar</button>
+                </div>
+            `;
 
-            if (confirmar) {
-                localStorage.removeItem("remedios");
+            document.querySelector(".container-header").appendChild(barraConfirmacao);
+
+            document.getElementById("btn-sim-excluir").addEventListener("click", () => {
+                localStorage.setItem("remedios", JSON.stringify([]));
                 localStorage.removeItem("tomadas");
                 location.reload();
-            }
+            });
+
+            document.getElementById("btn-nao-excluir").addEventListener("click", () => {
+                barraConfirmacao.remove();
+            });
         });
     }
     const dataAoAbrir = dataDeHoje();
