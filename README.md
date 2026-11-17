@@ -16,8 +16,6 @@ Esquecer uma dose ou não lembrar se determinado medicamento já foi tomado pode
 
 Segundo a Organização Mundial da Saúde (OMS), a adesão aos tratamentos de longo prazo em países desenvolvidos é de aproximadamente 50%.
 
-**Fonte:** [OMS — Adherence to Long-Term Therapies](https://iris.who.int/handle/10665/42682)
-
 ## 🎯 Nossa solução
 
 O ZELO oferece uma experiência simples e visual para ajudar o usuário a organizar sua rotina de medicamentos.
